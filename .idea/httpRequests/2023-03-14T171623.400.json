@@ -1,0 +1,6 @@
+{
+  "timestamp": "2023-03-14T10:16:23.619+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/api/comment/post"
+}
