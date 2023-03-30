@@ -7,6 +7,8 @@ import project.jobseekerplatform.Services.PostService;
 
 @RestController
 @RequestMapping("/api/react")
+@CrossOrigin
+
 public class ReactController {
     private final PostService postService;
 

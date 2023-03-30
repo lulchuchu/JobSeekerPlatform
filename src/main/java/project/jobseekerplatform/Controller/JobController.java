@@ -8,6 +8,8 @@ import project.jobseekerplatform.Services.JobService;
 
 @RestController
 @RequestMapping("/api/job")
+@CrossOrigin
+
 public class JobController {
 
     private final JobService jobService;

@@ -7,6 +7,8 @@ import project.jobseekerplatform.Services.CommentService;
 
 @RestController
 @RequestMapping("/api/comment")
+@CrossOrigin
+
 public class CommentController {
 
 //    private final KafkaTemplate<String, String> kafkaTemplate;

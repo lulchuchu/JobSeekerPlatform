@@ -8,6 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ import project.jobseekerplatform.Security.jwt.JwtTokenProvider;
 import project.jobseekerplatform.Services.UserService;
 
 @RestController
-
+@CrossOrigin
 public class AuthController {
     private final AuthenticationManager authenticationManager;
 
@@ -45,7 +46,7 @@ public class AuthController {
 
             String jwt = jwtTokenProvider.generateToken(authentication);
             User userr = userService.findByUsername(user.getUsername());
-            return ResponseEntity.ok(new JwtResponse(jwt, userr.getId(), userr.getUsername(), userr.getName(),userr.getRole()));
+            return ResponseEntity.ok(new JwtResponse(jwt, userr.getId(), userr.getUsername(), userr.getName(), userr.getRole(), userr.getProfilePicture()));
         }
         catch (Exception e){
             e.printStackTrace();
