@@ -5,7 +5,7 @@ import project.jobseekerplatform.Model.entities.Job;
 import java.util.List;
 
 public interface JobService {
-    Job addJob(Job job);
+    Job addJob(Integer id, Job job);
 
     List<Job> getAllJobsByUserId(int userId);
 

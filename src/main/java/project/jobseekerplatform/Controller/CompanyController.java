@@ -26,7 +26,7 @@ public class CompanyController {
     }
 
     @PostMapping("/add")
-    public void addCompany(Company company) {
+    public void addCompany(@RequestBody Company company) {
         companyService.addCompany(company);
     }
 

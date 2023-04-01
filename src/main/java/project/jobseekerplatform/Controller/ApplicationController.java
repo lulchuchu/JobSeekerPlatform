@@ -37,9 +37,15 @@ public class ApplicationController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/company")
     public ResponseEntity<?> listApplicationByCompany(@RequestParam("companyId") int companyId) {
         List<Application> applications = applicationService.listApplicationByCompany(companyId);
+        return ResponseEntity.ok(applications);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> listAllApplication() {
+        List<Application> applications = applicationService.listAllApplication();
         return ResponseEntity.ok(applications);
     }
 

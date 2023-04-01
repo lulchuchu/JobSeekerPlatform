@@ -14,4 +14,6 @@ Application apply(int userId, int applicationId);
 
     void addApplication(Application application, Authentication auth);
     List<Application> listApplicationByCompany(int companyId);
+
+    List<Application> listAllApplication();
 }

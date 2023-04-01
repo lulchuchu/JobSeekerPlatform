@@ -40,9 +40,9 @@ public class PostController {
     }
 
     @GetMapping("/show")
-    public ResponseEntity<?> getPost(Authentication auth) {
-        UserDetail userDetail = (UserDetail)auth.getPrincipal();
-        List<PostDto> post = postService.getPostByUserId(userDetail.getUser().getId());
+    public ResponseEntity<?> getPost(Authentication auth, @RequestParam int userId) {
+        UserDetail userDetail = (UserDetail) auth.getPrincipal();
+        List<PostDto> post = postService.getPostByUserId(userId);
         return ResponseEntity.ok(post);
     }
 

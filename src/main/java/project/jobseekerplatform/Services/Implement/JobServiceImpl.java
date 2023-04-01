@@ -24,7 +24,8 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public Job addJob(Job job) {
+    public Job addJob(Integer id, Job job) {
+        job.setUser(userRepository.findById(id).get());
         jobRepository.save(job);
         return job;
     }

@@ -2,8 +2,10 @@ package project.jobseekerplatform.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import project.jobseekerplatform.Model.entities.Job;
+import project.jobseekerplatform.Security.UserDetail;
 import project.jobseekerplatform.Services.JobService;
 
 @RestController
@@ -19,19 +21,22 @@ public class JobController {
         this.jobService = jobService;
     }
 
-    @GetMapping("/all/user")
-    public ResponseEntity<?> getAllJobsByUserId(@RequestParam int userId) {
-        return ResponseEntity.ok(jobService.getAllJobsByUserId(userId));
-    }
+//    @GetMapping("/all/user")
+//    public ResponseEntity<?> getAllJobsByUserId(@RequestParam int userId) {
+//        return ResponseEntity.ok(jobService.getAllJobsByUserId(userId));
+//    }
+//
+//    @GetMapping("/all/company")
+//    public ResponseEntity<?> getAllJobsByCompanyId(@RequestParam int companyId) {
+//        return ResponseEntity.ok(jobService.getAllJobsByCompanyId(companyId));
+//    }
 
-    @GetMapping("/all/company")
-    public ResponseEntity<?> getAllJobsByCompanyId(@RequestParam int companyId) {
-        return ResponseEntity.ok(jobService.getAllJobsByCompanyId(companyId));
-    }
-
+    //Chi co nguoi dung moi co the them job
     @GetMapping("/add")
-    public ResponseEntity<?> addJob(@RequestBody Job job) {
-        jobService.addJob(job);
+    public ResponseEntity<?> addJob(Authentication authentication, @RequestBody Job job) {
+        UserDetail userDetail = (UserDetail) authentication.getPrincipal();
+
+        jobService.addJob(userDetail.getUser().getId(), job);
         return ResponseEntity.ok("Job " + job + "added");
     }
 

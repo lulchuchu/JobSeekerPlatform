@@ -4,25 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="Update APi">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" afterDir="false" />
+    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update cors">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/JobController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ReactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ReactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/PostDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/PostDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/JobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/JobServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/JobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/CompanyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/CompanyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/JobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/JobController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/ApplicationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/ApplicationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ReactController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ReactController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/jwt/JwtResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/jwt/JwtResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/JobServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/JobServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +83,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="2MDlY9j53gHBoOqawbBC4h9BcF4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -99,6 +101,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/code/java/project/JobSeekerPlatform&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -211,7 +215,10 @@
       <workItem from="1680013317941" duration="1586000" />
       <workItem from="1680055597234" duration="111000" />
       <workItem from="1680085228110" duration="4046000" />
-      <workItem from="1680145717141" duration="5190000" />
+      <workItem from="1680145717141" duration="9343000" />
+      <workItem from="1680192941341" duration="32000" />
+      <workItem from="1680258315638" duration="2632000" />
+      <workItem from="1680340100127" duration="13694000" />
     </task>
     <task id="LOCAL-00001" summary="Create Basic Api">
       <created>1677814749257</created>
@@ -269,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678895187158</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update cors">
+      <created>1680165944950</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680165944950</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +315,8 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Create Basic Api" />
     <MESSAGE value="Update APi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update APi" />
+    <MESSAGE value="update cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="update cors" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

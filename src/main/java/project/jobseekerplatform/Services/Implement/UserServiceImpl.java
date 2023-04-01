@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.dto.UserDtoSignup;
 import project.jobseekerplatform.Model.entities.Application;
+import project.jobseekerplatform.Model.entities.Job;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Security.UserDetail;
@@ -111,5 +112,14 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException(username);
         }
         return new UserDetail(user);
+    }
+
+    @Override
+    public List<Job> listExperience(int userId) {
+        Optional<User> user = userRepo.findById(userId);
+        if (user.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        return user.get().getJobs();
     }
 }

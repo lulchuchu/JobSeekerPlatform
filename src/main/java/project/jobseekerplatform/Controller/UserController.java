@@ -3,7 +3,6 @@ package project.jobseekerplatform.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.jobseekerplatform.Model.dto.UserDtoSignup;
 import project.jobseekerplatform.Services.UserService;
 
 @RestController
@@ -18,35 +17,36 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    @GetMapping("/details/{userId}")
-    public ResponseEntity<?> getDetails(@PathVariable int userId){
+
+    @GetMapping("/details")
+    public ResponseEntity<?> getDetails(@RequestParam int userId) {
         return ResponseEntity.ok(userService.findById(userId));
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestBody UserDtoSignup userDtoSignup) {
-        userService.signUp(userDtoSignup);
-        return ResponseEntity.ok("User created successful");
-    }
 
-    @PutMapping("/addfollow/{userId}/{followId}")
-    public ResponseEntity<?> addFollow(@PathVariable int userId, @PathVariable int followId) {
+    @PutMapping("/addfollow")
+    public ResponseEntity<?> addFollow(@RequestParam int userId, @RequestParam int followId) {
         userService.addFollow(userId, followId);
         return ResponseEntity.ok("Follow added successful");
     }
 
-    @GetMapping("/following/{userId}")
-    public ResponseEntity<?> listFollowing(@PathVariable int userId) {
+    @GetMapping("/following")
+    public ResponseEntity<?> listFollowing(@RequestParam int userId) {
         return ResponseEntity.ok(userService.listFollowing(userId));
     }
 
-    @GetMapping("/followers/{userId}")
-    public ResponseEntity<?> listFollowers(@PathVariable int userId) {
+    @GetMapping("/followers")
+    public ResponseEntity<?> listFollowers(@RequestParam int userId) {
         return ResponseEntity.ok(userService.listFollowers(userId));
     }
 
     @GetMapping("/applying")
     public ResponseEntity<?> listApplying(@RequestParam int userId) {
         return ResponseEntity.ok(userService.listApplying(userId));
+    }
+
+    @GetMapping("/experience")
+    public ResponseEntity<?> listExperience(@RequestParam int userId) {
+        return ResponseEntity.ok(userService.listExperience(userId));
     }
 }

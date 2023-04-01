@@ -63,10 +63,15 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public List<Application> listApplicationByCompany(int companyId) {
         Optional<Company> company = companyRepo.findById(companyId);
-        if(company.isEmpty()) {
+        if (company.isEmpty()) {
             return null;
         }
         List<Application> applications = company.get().getApplications();
         return applications;
+    }
+
+    @Override
+    public List<Application> listAllApplication() {
+        return applicationRepo.findAll();
     }
 }
