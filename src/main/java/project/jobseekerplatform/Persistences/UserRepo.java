@@ -6,5 +6,7 @@ import project.jobseekerplatform.Model.entities.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
-    public User findByUsername(String username);
+    User findByUsername(String username);
+
+    User findByEmail(String email);
 }

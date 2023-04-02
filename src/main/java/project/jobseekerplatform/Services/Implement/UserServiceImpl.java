@@ -60,6 +60,28 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    public User findByEmail(String email) {
+        User user = userRepo.findByEmail(email);
+        if (user == null) {
+            throw new RuntimeException("User not found");
+        }
+        return user;
+    }
+
+    @Override
+    public Boolean checkDuplicateUserName(String username) {
+        User user = userRepo.findByUsername(username);
+        return user != null;
+    }
+
+    @Override
+    public Boolean checkDuplicateEmail(String email) {
+        User user = userRepo.findByEmail(email);
+        return user != null;
+    }
+
+
+    @Override
     public void addFollow(int userId, int followId) {
         Optional<User> user = userRepo.findById(userId);
         Optional<User> follow = userRepo.findById(followId);

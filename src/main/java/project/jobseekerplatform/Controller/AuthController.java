@@ -56,24 +56,17 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
-        try {
-            try{
-                if(userService.findByUsername(user.getUsername())!=null){
-                    throw new Exception("Đã tồn tại người dùng");
-                }
-
-            }catch (Exception e){
-                Role role = user.getRole();
-                String password = user.getPassword();
-                user.setRole(role);
-                user.setPassword(passwordEncoder.encode(password));
-                userService.saveUser(user);
-                return ResponseEntity.status(HttpStatus.OK).body(user);
-            }
-            return ResponseEntity.status(HttpStatus.OK).body("created");
-        }
-        catch (Exception e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        if (userService.checkDuplicateEmail(user.getEmail())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email đã tồn tại");
+        } else if (userService.checkDuplicateUserName(user.getUsername())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username đã tồn tại");
+        } else {
+            Role role = user.getRole();
+            String password = user.getPassword();
+            user.setRole(role);
+            user.setPassword(passwordEncoder.encode(password));
+            userService.saveUser(user);
+            return ResponseEntity.status(HttpStatus.OK).body("Created:\n" + user);
         }
     }
 }

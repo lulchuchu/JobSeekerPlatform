@@ -14,9 +14,17 @@ public interface UserService extends UserDetailsService {
     void signUp(UserDtoSignup userDtoSignup);
 
     User findById(int userId);
+
     User findByUsername(String username);
 
+    User findByEmail(String email);
+
+    Boolean checkDuplicateUserName(String username);
+
+    Boolean checkDuplicateEmail(String email);
+
     void addFollow(int userId, int followId);
+
     void saveUser(User user);
 
     List<UserDtoBasic> listFollowers(int userId);
