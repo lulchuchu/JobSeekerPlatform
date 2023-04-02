@@ -14,7 +14,18 @@ public class Company {
     private int id;
     private String name;
     private String profilePicture;
+    private String website;
+    //Technology, Information ...
+    private String industry;
+    private String companySize;
+    private String location;
+
+    @Column(length = 100000000)
     private String bio;
+
+    @OneToMany(mappedBy = "company")
+    private List<Post> posts;
+
     @OneToMany(mappedBy = "company")
     @JsonIgnore
     private List<Job> jobs;

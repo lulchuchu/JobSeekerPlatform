@@ -24,9 +24,12 @@ public class Post {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private Company company;
+
     @OneToMany(mappedBy = "post")
     private List<LikeReact> likeReacts;
+
     @OneToMany(mappedBy = "post")
     private List<Comment> comment;
-
 }

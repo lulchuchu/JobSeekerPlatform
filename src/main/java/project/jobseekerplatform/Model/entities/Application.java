@@ -15,10 +15,24 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-//    @Enumerated(EnumType.STRING)
-//    private List<Skill> skills;
+
+    //full-time, part-time, internship, volunteer
+    private String type;
+
+    @ManyToMany
+    @JoinTable(
+            name = "application_skill",
+            joinColumns = @JoinColumn(name = "application_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"application_id", "skill_id"}))
+    private List<Skill> skills;
+
+    @Column(length = 100000000)
+
     private String description;
+    private LocalDate startDate;
     private LocalDate endDate;
+
     @ManyToOne
     private Company company;
 

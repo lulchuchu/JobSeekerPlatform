@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import project.jobseekerplatform.Model.Role;
-import project.jobseekerplatform.Model.Skill;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,14 +19,24 @@ public class User {
     private String name;
     private String email;
     private String username;
-//    @JsonIgnore
+    //    @JsonIgnore
     private String password;
     private String profilePicture;
+
+    @Column(length = 100000000)
     private String bio;
+
     @Enumerated(EnumType.STRING)
     private Role role;
-    @Enumerated(EnumType.STRING)
-    private Skill skills;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_skill",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "skill_id"}))
+    private List<Skill> skills;
+
     @ManyToMany
     @JsonIgnore
     @JoinTable(name = "followers_following",
