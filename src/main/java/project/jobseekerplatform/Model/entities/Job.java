@@ -24,6 +24,7 @@ public class Job {
     private String description;
     private LocalDate startDate;
     private LocalDate leaveDate;
+    private String address;
 
     @ManyToMany
     @JoinTable(

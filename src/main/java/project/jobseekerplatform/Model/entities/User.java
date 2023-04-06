@@ -19,9 +19,14 @@ public class User {
     private String name;
     private String email;
     private String username;
+    private String shortDescription;
+    private String address;
     //    @JsonIgnore
     private String password;
     private String profilePicture;
+
+    @ManyToMany(mappedBy = "followers")
+    private List<Company> followingCompany;
 
     @Column(length = 100000000)
     private String bio;

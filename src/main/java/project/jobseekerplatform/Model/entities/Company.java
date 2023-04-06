@@ -15,10 +15,20 @@ public class Company {
     private String name;
     private String profilePicture;
     private String website;
+    private String shortDescription;
     //Technology, Information ...
     private String industry;
     private String companySize;
     private String location;
+
+    @ManyToMany
+    @JoinTable(
+            name = "company_followers",
+            joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"company_id", "user_id"}))
+    @JsonIgnore
+    private List<User> followers;
 
     @Column(length = 100000000)
     private String bio;

@@ -21,15 +21,15 @@ public class JobController {
         this.jobService = jobService;
     }
 
-//    @GetMapping("/all/user")
-//    public ResponseEntity<?> getAllJobsByUserId(@RequestParam int userId) {
-//        return ResponseEntity.ok(jobService.getAllJobsByUserId(userId));
-//    }
-//
-//    @GetMapping("/all/company")
-//    public ResponseEntity<?> getAllJobsByCompanyId(@RequestParam int companyId) {
-//        return ResponseEntity.ok(jobService.getAllJobsByCompanyId(companyId));
-//    }
+    @GetMapping("/all/user")
+    public ResponseEntity<?> getAllJobsByUserId(@RequestParam int userId) {
+        return ResponseEntity.ok(jobService.getAllJobsByUserId(userId));
+    }
+
+    @GetMapping("/all/company")
+    public ResponseEntity<?> getAllJobsByCompanyId(@RequestParam int companyId) {
+        return ResponseEntity.ok(jobService.getAllJobsByCompanyId(companyId));
+    }
 
     //Chi co nguoi dung moi co the them job
     @GetMapping("/add")
