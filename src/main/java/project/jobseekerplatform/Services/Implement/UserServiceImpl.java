@@ -88,8 +88,16 @@ public class UserServiceImpl implements UserService {
         if (user.isEmpty() || follow.isEmpty()) {
             throw new RuntimeException("User not found");
         }
-        user.get().getFollowing().add(follow.get());
-        follow.get().getFollowers().add(user.get());
+        List<User> following = user.get().getFollowing();
+        User follower = follow.get();
+        if (following.contains(follower)) {
+            following.remove(follow.get());
+            follow.get().getFollowers().remove(user.get());
+
+        } else {
+            following.add(follow.get());
+            follow.get().getFollowers().add(user.get());
+        }
         userRepo.save(user.get());
     }
 
@@ -114,6 +122,18 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("User not found");
         }
         return user.get().getFollowing().stream().map(following -> modelMapper.map(following, UserDtoBasic.class)).toList();
+    }
+
+    @Override
+    public boolean checkFollow(Integer userId, int followId) {
+        Optional<User> user = userRepo.findById(userId);
+        Optional<User> follow = userRepo.findById(followId);
+        if (user.isEmpty() || follow.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        List<User> following = user.get().getFollowing();
+        User follower = follow.get();
+        return following.contains(follower);
     }
 
     @Override
@@ -144,4 +164,6 @@ public class UserServiceImpl implements UserService {
         }
         return user.get().getJobs();
     }
+
+
 }
