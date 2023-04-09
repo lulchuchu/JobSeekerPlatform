@@ -40,10 +40,17 @@ public class ApplicationServiceImpl implements ApplicationService {
         if (user.isEmpty() || application.isEmpty()) {
             return null;
         }
-        user.get().getApplications().add(application.get());
-        userRepo.save(user.get());
+        List<Application> applications = user.get().getApplications();
+        List<User> users = application.get().getUsers();
+        if (applications.contains(application.get())) {
+            applications.remove(application.get());
+            users.remove(user.get());
+        } else {
+            applications.add(application.get());
+            users.add(user.get());
+        }
 
-        application.get().getUsers().add(user.get());
+        userRepo.save(user.get());
         applicationRepo.save(application.get());
 
         return application.get();
@@ -73,5 +80,12 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public List<Application> listAllApplication() {
         return applicationRepo.findAll();
+    }
+
+    @Override
+    public boolean checkApply(int id, int applicationId) {
+        User user = userRepo.findById(id).get();
+        return user.getApplications().stream()
+                .anyMatch(application -> application.getId() == applicationId);
     }
 }

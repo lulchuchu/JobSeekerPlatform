@@ -53,9 +53,8 @@ public class User {
     @JsonIgnore
     private List<User> followers;
 
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
-    private List<LikeReact> likeReacts;
+    @ManyToMany(mappedBy = "usersLiked")
+    private List<Post> postsLiked;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
@@ -71,26 +70,4 @@ public class User {
     @ManyToMany(mappedBy = "users")
     @JsonIgnore
     private List<Application> applications;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", profilePicture='" + profilePicture + '\'' +
-                ", bio='" + bio + '\'' +
-                ", role=" + role +
-                ", skills=" + skills +
-                ", following=" + following +
-                ", followers=" + followers +
-                ", likeReacts=" + likeReacts +
-                ", comments=" + comments +
-                ", jobs=" + jobs +
-                ", posts=" + posts +
-                ", applications=" + applications +
-                '}';
-    }
 }

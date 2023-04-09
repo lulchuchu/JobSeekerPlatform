@@ -14,7 +14,6 @@ public class CommentController {
 //    private final KafkaTemplate<String, String> kafkaTemplate;
     private final CommentService commentService;
 
-
     public CommentController(CommentService commentService) {
 //        this.kafkaTemplate = kafkaTemplate;
         this.commentService = commentService;
@@ -29,7 +28,6 @@ public class CommentController {
 
     @GetMapping("/show/{postId}")
     public ResponseEntity<?> showComment(@PathVariable int postId) {
-
         return ResponseEntity.ok(commentService.showComment(postId));
     }
 }

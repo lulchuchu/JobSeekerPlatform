@@ -1,6 +1,7 @@
 package project.jobseekerplatform.Services;
 
 import project.jobseekerplatform.Model.dto.CommentDto;
+import project.jobseekerplatform.Model.dto.LikeDto;
 import project.jobseekerplatform.Model.dto.PostDto;
 import project.jobseekerplatform.Model.entities.Post;
 
@@ -22,4 +23,10 @@ public interface PostService {
     void createReact(Integer postId, Integer userId);
 
     List<CommentDto> getComment(int postId);
+
+    boolean checkReact(int postId, int id);
+
+    List<LikeDto> listLiked(Integer postId);
+
+    int countLike(Integer postId);
 }

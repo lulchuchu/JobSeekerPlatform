@@ -16,9 +16,9 @@ public class Application {
     private int id;
     private String title;
 
-    //full-time, part-time, internship, volunteer
+    //full-time, part-time
     private String type;
-
+    private String address;
     @ManyToMany
     @JoinTable(
             name = "application_skill",

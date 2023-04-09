@@ -1,8 +1,6 @@
 package project.jobseekerplatform.Model.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,8 +8,8 @@ import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
+
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +25,13 @@ public class Post {
     @ManyToOne
     private Company company;
 
-    @OneToMany(mappedBy = "post")
-    private List<LikeReact> likeReacts;
+    @ManyToMany
+    @JoinTable(
+            name = "post_react",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"post_id", "user_id"}))
+    private List<User> usersLiked;
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comment;
