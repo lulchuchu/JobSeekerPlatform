@@ -46,6 +46,7 @@ public class PostController {
         return ResponseEntity.ok(post);
     }
 
+    @CrossOrigin
     @PostMapping("/create")
     public ResponseEntity<?> createPost(@RequestBody PostDto postDto,Authentication auth) {
         UserDetail userDetail = (UserDetail)auth.getPrincipal();

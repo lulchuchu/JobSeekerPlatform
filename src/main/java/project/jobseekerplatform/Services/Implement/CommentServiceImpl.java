@@ -31,8 +31,8 @@ public class CommentServiceImpl implements CommentService {
 
 
     @Override
-    public void createComment(CommentDto commentDto) {
-        User user = userService.findById(commentDto.getUserId());
+    public void createComment(Integer userId, CommentDto commentDto) {
+        User user = userService.findById(userId);
         Post post = postService.findPost(commentDto.getPostId());
         Comment comment = new Comment();
         comment.setUser(user);
@@ -45,8 +45,12 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<CommentDto> showComment(int postId) {
         Post post = postService.findPost(postId);
-        return post.getComment().stream().map(
-                comment -> modelMapper.map(comment, CommentDto.class)
+        return post.getComment().stream().map((comment) -> {
+                    CommentDto commentDto = modelMapper.map(comment, CommentDto.class);
+                    commentDto.setUserName(comment.getUser().getUsername());
+                    commentDto.setUserProfilePicture(comment.getUser().getProfilePicture());
+                    return commentDto;
+                }
         ).toList();
     }
 

@@ -54,6 +54,7 @@ public class User {
     private List<User> followers;
 
     @ManyToMany(mappedBy = "usersLiked")
+    @JsonIgnore
     private List<Post> postsLiked;
 
     @OneToMany(mappedBy = "user")
