@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import project.jobseekerplatform.Model.dto.FilterDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.Application;
 import project.jobseekerplatform.Model.entities.User;
@@ -44,8 +45,9 @@ public class ApplicationController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<?> listAllApplication() {
-        List<Application> applications = applicationService.listAllApplication();
+    public ResponseEntity<?> listAllApplication(FilterDto filterDto) {
+        System.out.println(filterDto);
+        List<Application> applications = applicationService.listAllApplication(filterDto);
         return ResponseEntity.ok(applications);
     }
 

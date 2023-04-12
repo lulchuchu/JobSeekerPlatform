@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import project.jobseekerplatform.Model.dto.FilterDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.Application;
 import project.jobseekerplatform.Model.entities.Company;
@@ -13,6 +14,7 @@ import project.jobseekerplatform.Persistences.CompanyRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.ApplicationService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,8 +80,40 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public List<Application> listAllApplication() {
-        return applicationRepo.findAll();
+    public List<Application> listAllApplication(FilterDto filterDto) {
+        String date = filterDto.getDate();
+        String experience = filterDto.getExperience() == null ? "%%" : filterDto.getExperience();
+        String jobType = filterDto.getJobType() == null ? "%%" : filterDto.getJobType();
+        String onSite = filterDto.getOnSite() == null ? "%%" : filterDto.getOnSite();
+
+        LocalDate dateResult = LocalDate.now();
+        if (date == null) {
+            dateResult = LocalDate.of(2000, 1, 1);
+        } else {
+            if (date.equals("1 day")) {
+                dateResult = dateResult.minusDays(1);
+            } else if (date.equals("Last week")) {
+                dateResult = dateResult.minusWeeks(1);
+            } else if (date.equals("Last month")) {
+                dateResult = dateResult.minusMonths(1);
+            } else if (date.equals("Any time")) {
+                dateResult = LocalDate.of(2000, 1, 1);
+            }
+        }
+
+
+//        switch (date){
+//            case "1 day":
+//                dateResult = dateResult.minusDays(1);
+//            case "Last week":
+//                dateResult = dateResult.minusWeeks(1);
+//            case "Last month":
+//                dateResult = dateResult.minusMonths(1);
+//            case "Any time":
+//                dateResult = LocalDate.of(2000, 1, 1);
+//        }
+
+        return applicationRepo.findJob(dateResult, experience, jobType, onSite);
     }
 
     @Override

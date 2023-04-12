@@ -7,6 +7,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+enum Type {
+    FULL_TIME,
+    PART_TIME
+}
+
 @Entity
 @Getter
 @Setter
@@ -15,9 +20,10 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-
+    private String experience;
     //full-time, part-time
     private String type;
+    private String onSite;
     private String address;
     @ManyToMany
     @JoinTable(
@@ -44,5 +50,4 @@ public class Application {
             uniqueConstraints = @UniqueConstraint(columnNames = {"application_id", "user_id"})
     )
     private List<User> users;
-
 }
