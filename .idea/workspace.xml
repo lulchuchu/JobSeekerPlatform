@@ -5,18 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update comment">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/CommentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/CommentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/FilterDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/FilterDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/PostDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/PostDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/ApplicationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/ApplicationRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/PostRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/PostRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/CommentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/CommentDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/PostDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/PostDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/ApplicationRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/ApplicationRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/PostRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/PostRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/PostService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +44,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="com.haulmont.jpb.NewClass" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="com.haulmont.jpb.NewClass" />
       </list>
     </option>
   </component>
@@ -100,7 +115,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;008af4f103404b4eb9144876266db0fa&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -222,6 +237,8 @@
       <workItem from="1681115263757" duration="9347000" />
       <workItem from="1681199717808" duration="1035000" />
       <workItem from="1681285558319" duration="5623000" />
+      <workItem from="1681311955639" duration="12580000" />
+      <workItem from="1681368271897" duration="6265000" />
     </task>
     <task id="LOCAL-00001" summary="Create Basic Api">
       <created>1677814749257</created>

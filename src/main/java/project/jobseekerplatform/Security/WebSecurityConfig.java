@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().ignoringAntMatchers("/**");
         http.authorizeRequests()
-                .antMatchers("/api/company/**", "/api/application/all", "/api/file/getImage", "/login", "/register").permitAll()
+                .antMatchers("/api/company/**", "/api/application/all", "/api/application/company", "/api/file/getImage", "/login", "/register", "/api/post/show", "/api/post/showCompany").permitAll()
                 .antMatchers( "/api/application/add/").hasRole(Role.ADMIN.name())
                 .anyRequest().authenticated()
                 .and().csrf().disable();

@@ -1,5 +1,6 @@
 package project.jobseekerplatform.Model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,5 +50,6 @@ public class Application {
             inverseJoinColumns = @JoinColumn(name = "user_id"),
             uniqueConstraints = @UniqueConstraint(columnNames = {"application_id", "user_id"})
     )
+    @JsonIgnore
     private List<User> users;
 }

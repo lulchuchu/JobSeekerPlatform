@@ -1,6 +1,9 @@
 package project.jobseekerplatform.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -40,16 +43,30 @@ public class PostController {
     }
 
     @GetMapping("/show")
-    public ResponseEntity<?> getPost(Authentication auth, @RequestParam int userId) {
-        UserDetail userDetail = (UserDetail) auth.getPrincipal();
-        List<PostDto> post = postService.getPostByUserId(userId);
+    public ResponseEntity<?> getPost(@RequestParam int userId,
+                                     @RequestParam(defaultValue = "0") int page,
+                                     @RequestParam(defaultValue = "2") int size) {
+//        UserDetail userDetail = (UserDetail) auth.getPrincipal();
+        System.out.println("Size: " + size + " Page: " + page + " UserId: " + userId + " ");
+        Pageable pageable = PageRequest.of(page, size);
+        Page<PostDto> post = postService.getPostByUserId(userId, pageable);
+        return ResponseEntity.ok(post);
+    }
+
+    @GetMapping("/showCompany")
+    public ResponseEntity<?> getPostCompany(@RequestParam int companyId,
+                                            @RequestParam(defaultValue = "0") int page,
+                                            @RequestParam(defaultValue = "2") int size) {
+//        UserDetail userDetail = (UserDetail) auth.getPrincipal();
+        Pageable pageable = PageRequest.of(page, size);
+        Page<PostDto> post = postService.getPostByCompanyId(companyId, pageable);
         return ResponseEntity.ok(post);
     }
 
     @CrossOrigin
     @PostMapping("/create")
-    public ResponseEntity<?> createPost(@RequestBody PostDto postDto,Authentication auth) {
-        UserDetail userDetail = (UserDetail)auth.getPrincipal();
+    public ResponseEntity<?> createPost(@RequestBody PostDto postDto, Authentication auth) {
+        UserDetail userDetail = (UserDetail) auth.getPrincipal();
         postService.createPost(postDto, userDetail.getUser().getId());
 //        kafkaTemplate.send("post-topic", postDto.toString());
         return ResponseEntity.ok("Post created successful");

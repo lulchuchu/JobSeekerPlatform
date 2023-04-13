@@ -1,6 +1,9 @@
 package project.jobseekerplatform.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -39,8 +42,12 @@ public class ApplicationController {
     }
 
     @GetMapping("/company")
-    public ResponseEntity<?> listApplicationByCompany(@RequestParam("companyId") int companyId) {
-        List<Application> applications = applicationService.listApplicationByCompany(companyId);
+    public ResponseEntity<?> listApplicationByCompany(@RequestParam("companyId") int companyId,
+                                                      @RequestParam(defaultValue = "0") int page,
+                                                      @RequestParam(defaultValue = "2") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<Application> applications = applicationService.listApplicationByCompany(companyId, pageable);
         return ResponseEntity.ok(applications);
     }
 

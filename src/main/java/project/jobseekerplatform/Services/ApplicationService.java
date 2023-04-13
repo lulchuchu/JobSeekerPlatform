@@ -1,5 +1,7 @@
 package project.jobseekerplatform.Services;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import project.jobseekerplatform.Model.dto.FilterDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
@@ -15,7 +17,7 @@ public interface ApplicationService {
 
     void addApplication(Application application, Authentication auth);
 
-    List<Application> listApplicationByCompany(int companyId);
+    Page<Application> listApplicationByCompany(int companyId, Pageable pageable);
 
     List<Application> listAllApplication(FilterDto filterDto);
 

@@ -1,5 +1,7 @@
 package project.jobseekerplatform.Services;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import project.jobseekerplatform.Model.dto.CommentDto;
 import project.jobseekerplatform.Model.dto.LikeDto;
 import project.jobseekerplatform.Model.dto.PostDto;
@@ -18,7 +20,7 @@ public interface PostService {
 
     List<PostDto> getNewsFeed(int userId);
 
-    List<PostDto> getPostByUserId(int userId);
+    Page<PostDto> getPostByUserId(int userId, Pageable pageable);
 
     void createReact(Integer postId, Integer userId);
 
@@ -29,4 +31,6 @@ public interface PostService {
     List<LikeDto> listLiked(Integer postId);
 
     int countLike(Integer postId);
+
+    Page<PostDto> getPostByCompanyId(int companyId, Pageable pageable);
 }

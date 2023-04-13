@@ -2,6 +2,9 @@ package project.jobseekerplatform.Services.Implement;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.CommentDto;
 import project.jobseekerplatform.Model.dto.LikeDto;
@@ -51,17 +54,27 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getPostByUserId(int userId) {
-        User user = userService.findById(userId);
-//        return user.getPosts().stream().map(p -> modelMapper.map(p, PostDto.class)).toList();
-        return user.getPosts().stream().map(p -> {
+    public Page<PostDto> getPostByUserId(int userId, Pageable pageable) {
+        List<PostDto> posts = postRepo.findAllByUserId(userId, pageable).stream().map(p -> {
             PostDto postDto = modelMapper.map(p, PostDto.class);
             postDto.setLikeCount(p.getUsersLiked().size());
             postDto.setCommentCount(p.getComment().size());
             return postDto;
         }).toList();
+        return new PageImpl<>(posts, pageable, posts.size());
     }
 
+    @Override
+    public Page<PostDto> getPostByCompanyId(int companyId, Pageable pageable) {
+        List<PostDto> posts = postRepo.findAllByCompanyId(companyId, pageable).stream().map(p -> {
+            PostDto postDto = modelMapper.map(p, PostDto.class);
+            postDto.setLikeCount(p.getUsersLiked().size());
+            postDto.setCommentCount(p.getComment().size());
+            return postDto;
+        }).toList();
+        return new PageImpl<>(posts, pageable, posts.size());
+
+    }
 
     @Override
     public boolean checkReact(int postId, int userId) {
@@ -87,6 +100,7 @@ public class PostServiceImpl implements PostService {
         Post post = postRepo.findById(postId).get();
         return post.getUsersLiked().size();
     }
+
 
     @Override
     public void createReact(Integer postId, Integer userId) {

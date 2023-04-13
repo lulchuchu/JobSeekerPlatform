@@ -26,6 +26,7 @@ public class User {
     private String profilePicture;
 
     @ManyToMany(mappedBy = "followers")
+    @JsonIgnore
     private List<Company> followingCompany;
 
     @Column(length = 100000000)

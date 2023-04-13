@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilterDto {
-    private String date;
-    private String experience;
-    private String jobType;
-    private String onSite;
-    private String companyId;
+public class CompanyDto implements Serializable {
+    private int id;
+    private String name;
+    private String profilePicture;
 }

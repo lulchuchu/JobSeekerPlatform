@@ -2,12 +2,14 @@ package project.jobseekerplatform.Services.Implement;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.FilterDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.Application;
-import project.jobseekerplatform.Model.entities.Company;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.ApplicationRepo;
 import project.jobseekerplatform.Persistences.CompanyRepo;
@@ -70,13 +72,9 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public List<Application> listApplicationByCompany(int companyId) {
-        Optional<Company> company = companyRepo.findById(companyId);
-        if (company.isEmpty()) {
-            return null;
-        }
-        List<Application> applications = company.get().getApplications();
-        return applications;
+    public Page<Application> listApplicationByCompany(int companyId, Pageable pageable) {
+        List<Application> applications = applicationRepo.findByComId(companyId, pageable);
+        return new PageImpl<>(applications, pageable, applications.size());
     }
 
     @Override
@@ -85,6 +83,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         String experience = filterDto.getExperience() == null ? "%%" : filterDto.getExperience();
         String jobType = filterDto.getJobType() == null ? "%%" : filterDto.getJobType();
         String onSite = filterDto.getOnSite() == null ? "%%" : filterDto.getOnSite();
+        String companyId = filterDto.getCompanyId();
 
         LocalDate dateResult = LocalDate.now();
         if (date == null) {
@@ -112,8 +111,12 @@ public class ApplicationServiceImpl implements ApplicationService {
 //            case "Any time":
 //                dateResult = LocalDate.of(2000, 1, 1);
 //        }
+        if (companyId == null) {
+            return applicationRepo.findJob(dateResult, experience, jobType, onSite);
+        } else {
 
-        return applicationRepo.findJob(dateResult, experience, jobType, onSite);
+            return applicationRepo.findJobCompany(dateResult, experience, jobType, onSite, Integer.parseInt(companyId));
+        }
     }
 
     @Override

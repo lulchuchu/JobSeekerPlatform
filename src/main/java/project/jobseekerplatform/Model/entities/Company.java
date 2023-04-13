@@ -34,6 +34,7 @@ public class Company {
     private String bio;
 
     @OneToMany(mappedBy = "company")
+    @JsonIgnore
     private List<Post> posts;
 
     @OneToMany(mappedBy = "company")
