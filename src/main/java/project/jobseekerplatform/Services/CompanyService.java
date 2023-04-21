@@ -1,5 +1,6 @@
 package project.jobseekerplatform.Services;
 
+import project.jobseekerplatform.Model.dto.CompanyDto;
 import project.jobseekerplatform.Model.entities.Company;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface CompanyService {
     void addFollow(int userId, int companyId);
 
     boolean checkFollow(int userId, int companyId);
+
+    List<CompanyDto> getAllCompanies();
 }

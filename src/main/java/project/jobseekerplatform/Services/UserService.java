@@ -38,4 +38,6 @@ public interface UserService extends UserDetailsService {
     List<Job> listExperience(int userId);
 
     boolean checkFollow(Integer id, int followId);
+
+    List<UserDtoBasic> listWorkAt(int companyId);
 }

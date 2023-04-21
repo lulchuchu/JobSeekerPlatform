@@ -17,5 +17,5 @@ public class UserDtoBasic implements Serializable {
     private String name;
     private String email;
     private String profilePicture;
-    private String bio;
+    private String shortDescription;
 }

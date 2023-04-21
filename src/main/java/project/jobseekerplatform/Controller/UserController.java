@@ -67,4 +67,9 @@ public class UserController {
     public ResponseEntity<?> listExperience(@RequestParam int userId) {
         return ResponseEntity.ok(userService.listExperience(userId));
     }
+
+    @GetMapping("/workat")
+    public ResponseEntity<?> listWorkAt(@RequestParam int companyId) {
+        return ResponseEntity.ok(userService.listWorkAt(companyId));
+    }
 }

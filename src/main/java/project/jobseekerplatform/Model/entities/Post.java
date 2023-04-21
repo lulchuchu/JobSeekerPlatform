@@ -15,6 +15,8 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
+
+    @Column(length = 100000000)
     private String content;
     private LocalDate postedDate;
     private String images;

@@ -137,6 +137,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserDtoBasic> listWorkAt(int companyId) {
+        List<User> users = userRepo.findAllByCompany(companyId);
+        return users.stream().map(user -> modelMapper.map(user, UserDtoBasic.class)).toList();
+    }
+
+    @Override
     public List<Application> listApplying(int userId) {
         Optional<User> user = userRepo.findById(userId);
         if (user.isEmpty()) {

@@ -1,7 +1,9 @@
 package project.jobseekerplatform.Services.Implement;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.jobseekerplatform.Model.dto.CompanyDto;
 import project.jobseekerplatform.Model.entities.Company;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.CompanyRepo;
@@ -15,11 +17,13 @@ import java.util.Optional;
 public class CompanyServiceImpl implements CompanyService {
     private final CompanyRepo companyRepo;
     private final UserRepo userRepo;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public CompanyServiceImpl(CompanyRepo companyRepo, UserRepo userRepo) {
+    public CompanyServiceImpl(CompanyRepo companyRepo, UserRepo userRepo, ModelMapper modelMapper) {
         this.companyRepo = companyRepo;
         this.userRepo = userRepo;
+        this.modelMapper = modelMapper;
     }
 
 
@@ -56,6 +60,11 @@ public class CompanyServiceImpl implements CompanyService {
         List<Company> followingCompanies = user.get().getFollowingCompany();
 
         return followingCompanies.contains(company.get());
+    }
+
+    @Override
+    public List<CompanyDto> getAllCompanies() {
+        return companyRepo.findAll().stream().map(company -> modelMapper.map(company, CompanyDto.class)).toList();
     }
 
     @Override

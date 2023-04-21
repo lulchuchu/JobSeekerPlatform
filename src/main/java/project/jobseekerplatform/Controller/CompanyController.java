@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import project.jobseekerplatform.Model.dto.CompanyDto;
 import project.jobseekerplatform.Model.entities.Company;
 import project.jobseekerplatform.Security.UserDetail;
 import project.jobseekerplatform.Services.CompanyService;
@@ -20,6 +21,12 @@ public class CompanyController {
     @Autowired
     public CompanyController(CompanyService companyService) {
         this.companyService = companyService;
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllCompanies() {
+        List<CompanyDto> companies = companyService.getAllCompanies();
+        return ResponseEntity.ok(companies);
     }
 
     @GetMapping("/details")
