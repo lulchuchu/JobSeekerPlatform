@@ -51,28 +51,32 @@ public class PostServiceImpl implements PostService {
             }).toList());
         }
         return newsfeed;
+
+
     }
 
     @Override
     public Page<PostDto> getPostByUserId(int userId, Pageable pageable) {
+        long totalPage = postRepo.countByUserId(userId);
         List<PostDto> posts = postRepo.findAllByUserId(userId, pageable).stream().map(p -> {
             PostDto postDto = modelMapper.map(p, PostDto.class);
             postDto.setLikeCount(p.getUsersLiked().size());
             postDto.setCommentCount(p.getComment().size());
             return postDto;
         }).toList();
-        return new PageImpl<>(posts, pageable, posts.size());
+        return new PageImpl<>(posts, pageable, totalPage);
     }
 
     @Override
     public Page<PostDto> getPostByCompanyId(int companyId, Pageable pageable) {
+        long totalPage = postRepo.countByCompanyId(companyId);
         List<PostDto> posts = postRepo.findAllByCompanyId(companyId, pageable).stream().map(p -> {
             PostDto postDto = modelMapper.map(p, PostDto.class);
             postDto.setLikeCount(p.getUsersLiked().size());
             postDto.setCommentCount(p.getComment().size());
             return postDto;
         }).toList();
-        return new PageImpl<>(posts, pageable, posts.size());
+        return new PageImpl<>(posts, pageable, totalPage);
 
     }
 

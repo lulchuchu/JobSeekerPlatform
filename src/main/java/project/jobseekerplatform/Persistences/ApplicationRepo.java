@@ -9,12 +9,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface ApplicationRepo extends JpaRepository<Application, Integer> {
+    @Query("SELECT count(*) FROM Application a WHERE a.startDate >= ?1 AND a.experience like ?2 AND a.type like ?3 AND a.onSite like ?4")
+    long countJob(LocalDate dateResult, String experience, String jobType, String onSite);
+
     @Query("SELECT a FROM Application a WHERE a.startDate >= ?1 AND a.experience like ?2 AND a.type like ?3 AND a.onSite like ?4")
-    List<Application> findJob(LocalDate dateResult, String experience, String jobType, String onSite);
+    List<Application> findJob(LocalDate dateResult, String experience, String jobType, String onSite, Pageable pageable);
+
+    @Query("SELECT count(*) FROM Application a WHERE a.company.id = ?5 AND a.startDate >= ?1 AND a.experience like ?2 AND a.type like ?3 AND a.onSite like ?4")
+    long countJob(LocalDate dateResult, String experience, String jobType, String onSite, int id);
 
     @Query("SELECT a FROM Application a WHERE a.company.id = ?5 AND a.startDate >= ?1 AND a.experience like ?2 AND a.type like ?3 AND a.onSite like ?4")
-    List<Application> findJobCompany(LocalDate dateResult, String experience, String jobType, String onSite, int id);
+    List<Application> findJobCompany(LocalDate dateResult, String experience, String jobType, String onSite, int id, Pageable pageable);
 
     @Query("SELECT a FROM Application a WHERE a.company.id = ?1")
     List<Application> findByComId(int id, Pageable pageable);
+
+    long countByCompanyId(int companyId);
 }

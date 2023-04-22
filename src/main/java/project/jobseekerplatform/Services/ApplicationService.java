@@ -19,7 +19,7 @@ public interface ApplicationService {
 
     Page<Application> listApplicationByCompany(int companyId, Pageable pageable);
 
-    List<Application> listAllApplication(FilterDto filterDto);
+    Page<Application> listAllApplication(FilterDto filterDto, Pageable pageable);
 
     boolean checkApply(int id, int applicationId);
 }

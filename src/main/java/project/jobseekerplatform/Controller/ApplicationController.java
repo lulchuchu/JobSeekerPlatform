@@ -54,7 +54,8 @@ public class ApplicationController {
     @GetMapping("/all")
     public ResponseEntity<?> listAllApplication(FilterDto filterDto) {
         System.out.println(filterDto);
-        List<Application> applications = applicationService.listAllApplication(filterDto);
+        Pageable pageable = PageRequest.of(filterDto.getCurrPage(), filterDto.getNumberPerPage());
+        Page<Application> applications = applicationService.listAllApplication(filterDto, pageable);
         return ResponseEntity.ok(applications);
     }
 

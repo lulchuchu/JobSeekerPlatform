@@ -24,5 +24,9 @@ public interface PostRepo extends JpaRepository<Post, Integer> {
 
     @Query(value = "SELECT p FROM Post p WHERE p.user.id = ?1")
     List<Post> findAllByUserId(int userId, Pageable pageable);
+
+    long countByUserId(int userId);
+
+    long countByCompanyId(int companyId);
 }
 

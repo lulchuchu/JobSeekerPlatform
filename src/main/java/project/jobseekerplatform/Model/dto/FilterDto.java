@@ -13,4 +13,6 @@ public class FilterDto {
     private String jobType;
     private String onSite;
     private String companyId;
+    private Integer currPage;
+    private Integer numberPerPage;
 }

@@ -73,12 +73,13 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public Page<Application> listApplicationByCompany(int companyId, Pageable pageable) {
+        long totalJobPage = applicationRepo.countByCompanyId(companyId);
         List<Application> applications = applicationRepo.findByComId(companyId, pageable);
-        return new PageImpl<>(applications, pageable, applications.size());
+        return new PageImpl<>(applications, pageable, totalJobPage);
     }
 
     @Override
-    public List<Application> listAllApplication(FilterDto filterDto) {
+    public Page<Application> listAllApplication(FilterDto filterDto, Pageable pageable) {
         String date = filterDto.getDate();
         String experience = filterDto.getExperience() == null ? "%%" : filterDto.getExperience();
         String jobType = filterDto.getJobType() == null ? "%%" : filterDto.getJobType();
@@ -99,23 +100,17 @@ public class ApplicationServiceImpl implements ApplicationService {
                 dateResult = LocalDate.of(2000, 1, 1);
             }
         }
-
-
-//        switch (date){
-//            case "1 day":
-//                dateResult = dateResult.minusDays(1);
-//            case "Last week":
-//                dateResult = dateResult.minusWeeks(1);
-//            case "Last month":
-//                dateResult = dateResult.minusMonths(1);
-//            case "Any time":
-//                dateResult = LocalDate.of(2000, 1, 1);
-//        }
         if (companyId == null) {
-            return applicationRepo.findJob(dateResult, experience, jobType, onSite);
-        } else {
+            long totalPage = applicationRepo.countJob(dateResult, experience, jobType, onSite);
 
-            return applicationRepo.findJobCompany(dateResult, experience, jobType, onSite, Integer.parseInt(companyId));
+            List<Application> applications = applicationRepo.findJob(dateResult, experience, jobType, onSite, pageable);
+            return new PageImpl<>(applications, pageable, totalPage);
+//            return applications;
+        } else {
+            long totalPage = applicationRepo.countJob(dateResult, experience, jobType, onSite, Integer.parseInt(companyId));
+            List<Application> applications = applicationRepo.findJobCompany(dateResult, experience, jobType, onSite, Integer.parseInt(companyId), pageable);
+            return new PageImpl<>(applications, pageable, totalPage);
+//            return applications;
         }
     }
 
