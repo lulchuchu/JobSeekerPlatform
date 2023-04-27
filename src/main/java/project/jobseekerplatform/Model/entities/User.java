@@ -24,6 +24,7 @@ public class User {
     //    @JsonIgnore
     private String password;
     private String profilePicture;
+    private String CV;
 
     @ManyToMany(mappedBy = "followers")
     @JsonIgnore

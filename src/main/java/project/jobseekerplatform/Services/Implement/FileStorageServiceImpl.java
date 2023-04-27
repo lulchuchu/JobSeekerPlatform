@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import project.jobseekerplatform.Services.FileStorageService;
 
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,8 +21,9 @@ public class FileStorageServiceImpl implements FileStorageService {
     public void save(MultipartFile file) {
         try {
             if (!this.root.resolve(file.getOriginalFilename()).toFile().exists()) {
-
-                Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+                InputStream in = file.getInputStream();
+                Files.copy(in, this.root.resolve(file.getOriginalFilename()));
+                in.close();
             }
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());

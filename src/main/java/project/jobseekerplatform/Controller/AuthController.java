@@ -23,9 +23,7 @@ import project.jobseekerplatform.Services.UserService;
 @CrossOrigin
 public class AuthController {
     private final AuthenticationManager authenticationManager;
-
     private final JwtTokenProvider jwtTokenProvider;
-
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
@@ -61,7 +59,23 @@ public class AuthController {
         } else if (userService.checkDuplicateUserName(user.getUsername())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username đã tồn tại");
         } else {
-            Role role = user.getRole();
+            Role role = Role.USER;
+            String password = user.getPassword();
+            user.setRole(role);
+            user.setPassword(passwordEncoder.encode(password));
+            userService.saveUser(user);
+            return ResponseEntity.status(HttpStatus.OK).body("Created:\n" + user);
+        }
+    }
+
+    @PostMapping("/admin/register")
+    public ResponseEntity<?> adminRegister(@RequestBody User user) {
+        if (userService.checkDuplicateEmail(user.getEmail())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email đã tồn tại");
+        } else if (userService.checkDuplicateUserName(user.getUsername())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username đã tồn tại");
+        } else {
+            Role role = Role.ADMIN;
             String password = user.getPassword();
             user.setRole(role);
             user.setPassword(passwordEncoder.encode(password));

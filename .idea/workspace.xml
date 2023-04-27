@@ -4,21 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update side">
+    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/FilterDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/FilterDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/ApplicationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/ApplicationRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/PostRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/PostRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/FilterDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/FilterDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/ApplicationRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/ApplicationRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/ApplicationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/ApplicationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Pics/Screenshot 2022-12-18 000536.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Pics/Screenshot 2022-12-20 210849.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Pics/Screenshot 2023-03-02 105438.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Pics/Screenshot 2023-03-03 013800.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/UserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/UserRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,39 +89,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/code/java/project/user.sql&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;008af4f103404b4eb9144876266db0fa&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "database.data.extractors.current.id": "SQL Inserts",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/code/java/project/user.sql",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "spring.configuration.checksum": "008af4f103404b4eb9144876266db0fa",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\java\project\JobSeekerPlatform\src\main\java\project\jobseekerplatform" />
@@ -234,7 +244,17 @@
       <workItem from="1682040215025" duration="9620000" />
       <workItem from="1682066812343" duration="889000" />
       <workItem from="1682068112399" duration="7916000" />
-      <workItem from="1682131714802" duration="7107000" />
+      <workItem from="1682131714802" duration="7967000" />
+      <workItem from="1682215396895" duration="2288000" />
+      <workItem from="1682306043779" duration="1133000" />
+      <workItem from="1682327002611" duration="1627000" />
+      <workItem from="1682389653206" duration="177000" />
+      <workItem from="1682391578954" duration="1269000" />
+      <workItem from="1682420952260" duration="2096000" />
+      <workItem from="1682440113105" duration="2157000" />
+      <workItem from="1682516540827" duration="3710000" />
+      <workItem from="1682556619004" duration="8258000" />
+      <workItem from="1682579445467" duration="4209000" />
     </task>
     <task id="LOCAL-00001" summary="Create Basic Api">
       <created>1677814749257</created>
@@ -397,7 +417,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682049515116</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update pagination">
+      <created>1682157273598</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1682157273598</updated>
+    </task>
+    <task id="LOCAL-00025" summary="update pagination">
+      <created>1682157317395</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1682157317395</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,9 +471,9 @@
     <MESSAGE value="update company, user" />
     <MESSAGE value="update like, apply to job" />
     <MESSAGE value="update comment" />
-    <MESSAGE value="update pagination" />
     <MESSAGE value="update side" />
-    <option name="LAST_COMMIT_MESSAGE" value="update side" />
+    <MESSAGE value="update pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="update pagination" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -449,7 +483,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/UserController.java</url>
-          <line>36</line>
+          <line>51</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

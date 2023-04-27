@@ -37,7 +37,6 @@ public class FileController {
                 .body(bytes);
     }
 
-
     @PostMapping("/upload")
     public ResponseEntity<?> uploadFile(@RequestParam(value = "files", required = false) MultipartFile[] files) {
         String fileName = "";
@@ -45,6 +44,7 @@ public class FileController {
             fileStorageService.save(file);
             fileName += file.getOriginalFilename() + ",";
         }
+        System.out.println(fileName.substring(0, fileName.length() - 1));
         return ResponseEntity.ok(fileName.substring(0, fileName.length() - 1));
     }
 }

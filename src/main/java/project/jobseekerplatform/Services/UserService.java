@@ -40,4 +40,11 @@ public interface UserService extends UserDetailsService {
     boolean checkFollow(Integer id, int followId);
 
     List<UserDtoBasic> listWorkAt(int companyId);
+
+    void update(User user);
+
+    void changeCV(Integer id, String path);
+
+    void changeProfilePicture(Integer userId, String path);
+
 }

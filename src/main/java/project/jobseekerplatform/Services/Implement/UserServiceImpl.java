@@ -143,6 +143,35 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void update(User user) {
+        System.out.println(user.getId());
+        System.out.println(user.getName());
+        System.out.println(user.getEmail());
+        System.out.println(user.getAddress());
+        System.out.println(user.getShortDescription());
+        userRepo.updateUser(user.getId(), user.getName(), user.getEmail(), user.getAddress(), user.getShortDescription());
+    }
+
+    @Override
+    public void changeCV(Integer userId, String path) {
+        Optional<User> user = userRepo.findById(userId);
+        if (user.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        userRepo.updateCV(userId, path);
+    }
+
+    @Override
+    public void changeProfilePicture(Integer userId, String path) {
+        Optional<User> user = userRepo.findById(userId);
+        if (user.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        userRepo.updateProfilePicture(userId, path);
+    }
+
+
+    @Override
     public List<Application> listApplying(int userId) {
         Optional<User> user = userRepo.findById(userId);
         if (user.isEmpty()) {
