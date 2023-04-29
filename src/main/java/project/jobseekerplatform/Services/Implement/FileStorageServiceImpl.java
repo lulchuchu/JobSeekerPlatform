@@ -15,7 +15,8 @@ import java.nio.file.Paths;
 @Service
 public class FileStorageServiceImpl implements FileStorageService {
 
-    private final Path root = Paths.get("src/main/resources/static/Pics");
+//    private final Path root = Paths.get("src/main/resources/static/Pics");
+private final Path root = Paths.get("Pics");
 
     @Override
     public void save(MultipartFile file) {
