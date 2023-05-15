@@ -37,4 +37,7 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comment;
+
+    @OneToMany(mappedBy = "post")
+    private List<Notification> notifications;
 }

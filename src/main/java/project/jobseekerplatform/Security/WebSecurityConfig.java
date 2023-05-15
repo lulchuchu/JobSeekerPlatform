@@ -48,12 +48,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userService) // Cung cáp userservice cho spring security
                 .passwordEncoder(passwordEncoder()); // cung cấp password encoder
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().ignoringAntMatchers("/**");
         http.authorizeRequests()
-                .antMatchers("/api/company/**", "/api/application/all", "/api/application/company", "/api/file/getImage", "/login", "/register", "/api/post/show", "/api/post/showCompany").permitAll()
-                .antMatchers( "/api/application/add/").hasRole(Role.ADMIN.name())
+                .antMatchers("/api/company/**", "/api/application/all", "/api/application/company",
+                        "/api/file/getImage", "/login", "/register", "/admin/register", "/admin/login",
+                        "/api/post/show", "/api/post/showCompany").permitAll()
+                .antMatchers("/api/application/add/").hasRole(Role.ADMIN.name())
                 .anyRequest().authenticated()
                 .and().csrf().disable();
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
@@ -61,4 +64,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.cors();
     }
+
+
 }

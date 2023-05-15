@@ -73,4 +73,13 @@ public class User {
     @ManyToMany(mappedBy = "users")
     @JsonIgnore
     private List<Application> applications;
+
+    @ManyToMany(mappedBy = "users")
+    private List<Notification> notifications;
+
+    @OneToMany(mappedBy = "sender")
+    private List<Message> sendedMessages;
+
+    @OneToMany(mappedBy = "receiver")
+    private List<Message> receivedMessages;
 }
