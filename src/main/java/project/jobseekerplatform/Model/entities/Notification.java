@@ -19,6 +19,9 @@ public class Notification {
     @ManyToOne
     private Post post;
 
+    @ManyToOne
+    private User sender;
+
     @ManyToMany
     @JsonIgnore
     @JoinTable(
@@ -27,7 +30,7 @@ public class Notification {
             inverseJoinColumns = @JoinColumn(name = "user_id"),
             uniqueConstraints = @UniqueConstraint(columnNames = {"notification_id", "user_id"})
     )
-    private List<User> users;
+    private List<User> receivers;
     private String message;
 
 }

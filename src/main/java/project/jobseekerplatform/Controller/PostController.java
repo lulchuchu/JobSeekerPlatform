@@ -67,9 +67,11 @@ public class PostController {
     @PostMapping("/create")
     public ResponseEntity<?> createPost(@RequestBody PostDto postDto, Authentication auth) {
         UserDetail userDetail = (UserDetail) auth.getPrincipal();
-        postService.createPost(postDto, userDetail.getUser().getId());
+        int postId = postService.createPost(postDto, userDetail.getUser().getId());
 //        kafkaTemplate.send("post-topic", postDto.toString());
-        return ResponseEntity.ok("Post created successful");
+//        return ResponseEntity.ok("Post created successful");
+        return ResponseEntity.ok(postId);
+
     }
 
     @PostMapping("/delete/{postId}")

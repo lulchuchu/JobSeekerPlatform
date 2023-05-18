@@ -4,18 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="fixed upload file">
+    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update websocket">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Configuration/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Configuration/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/NotificationDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/MessageE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Notification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/NotificationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/NotificationRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/PostService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +43,8 @@
       <list>
         <option value="Enum" />
         <option value="com.haulmont.jpb.NewClass" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -99,7 +112,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;008af4f103404b4eb9144876266db0fa&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -110,6 +123,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="project.jobseekerplatform.Services" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\java\project\JobSeekerPlatform\src\main\java\project\jobseekerplatform" />
       <recent name="D:\code\java\project\JobSeekerPlatform\src\main\java\project\jobseekerplatform\Configuration" />
@@ -251,7 +267,14 @@
       <workItem from="1683681363309" duration="599000" />
       <workItem from="1683970556931" duration="2360000" />
       <workItem from="1684135208332" duration="193000" />
-      <workItem from="1684135411405" duration="7393000" />
+      <workItem from="1684135411405" duration="10027000" />
+      <workItem from="1684204800497" duration="9466000" />
+      <workItem from="1684238083639" duration="84000" />
+      <workItem from="1684238182242" duration="121000" />
+      <workItem from="1684288871165" duration="3147000" />
+      <workItem from="1684292140455" duration="7111000" />
+      <workItem from="1684375163963" duration="3298000" />
+      <workItem from="1684378986383" duration="11541000" />
     </task>
     <task id="LOCAL-00001" summary="Create Basic Api">
       <created>1677814749257</created>
@@ -442,7 +465,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682737170695</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="update websocket">
+      <created>1684162038097</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684162038097</updated>
+    </task>
+    <task id="LOCAL-00029" summary="update websocket">
+      <created>1684162100865</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684162100865</updated>
+    </task>
+    <task id="LOCAL-00030" summary="update websocket">
+      <created>1684162130189</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1684162130189</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +530,8 @@
     <MESSAGE value="update pagination" />
     <MESSAGE value="update upload file" />
     <MESSAGE value="fixed upload file" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed upload file" />
+    <MESSAGE value="update websocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="update websocket" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -514,6 +559,51 @@
           <line>111</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -526,6 +616,7 @@
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="user.posts" />
         <watch expression="((String)((StandardMultipartFile)file).filename).hashIsZero" custom="org.springframework.web.multipart.support.StandardMultipartHttpServletRequest.StandardMultipartFile,java.lang.String" />
+        <watch expression="messageDto" />
       </configuration>
     </watches-manager>
   </component>

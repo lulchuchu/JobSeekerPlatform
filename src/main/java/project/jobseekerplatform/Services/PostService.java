@@ -10,7 +10,7 @@ import project.jobseekerplatform.Model.entities.Post;
 import java.util.List;
 
 public interface PostService {
-    void createPost(PostDto postDto, Integer id);
+    Integer createPost(PostDto postDto, Integer id);
 
     Post findPost(int postId);
 

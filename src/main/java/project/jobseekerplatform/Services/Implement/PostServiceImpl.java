@@ -134,7 +134,7 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public void createPost(PostDto postDto, Integer id) {
+    public Integer createPost(PostDto postDto, Integer id) {
         User user = userService.findById(id);
 //        System.out.println(user);
         Post post = new Post();
@@ -143,6 +143,7 @@ public class PostServiceImpl implements PostService {
         post.setPostedDate(LocalDate.now());
         post.setImages(postDto.getImages());
         postRepo.save(post);
+        return post.getId();
     }
 
     @Override

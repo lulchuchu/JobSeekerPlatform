@@ -12,7 +12,8 @@ import java.io.Serializable;
 public class NotificationDto implements Serializable {
     private int id;
     private String message;
-    private int userId; //nguoi gui di
-    private String username;
+    private int senderId;
+    private String senderName;
+    private String senderAvatar;
     private int postId;
 }

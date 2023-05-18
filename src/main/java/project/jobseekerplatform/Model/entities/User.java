@@ -51,7 +51,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "following_id"),
             uniqueConstraints = @UniqueConstraint(columnNames = {"follower_id", "following_id"}))
     private List<User> following;
-    @ManyToMany(mappedBy = "following")
+
+    @ManyToMany(mappedBy = "following", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<User> followers;
 
@@ -74,12 +75,20 @@ public class User {
     @JsonIgnore
     private List<Application> applications;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "receivers")
+    @JsonIgnore
     private List<Notification> notifications;
 
     @OneToMany(mappedBy = "sender")
-    private List<Message> sendedMessages;
+    @JsonIgnore
+    private List<MessageE> sendedMessageES;
 
     @OneToMany(mappedBy = "receiver")
-    private List<Message> receivedMessages;
+    @JsonIgnore
+    private List<MessageE> receivedMessageES;
+
+    @OneToMany(mappedBy = "sender")
+    @JsonIgnore
+    private List<Notification> triggerNotifications;
+
 }

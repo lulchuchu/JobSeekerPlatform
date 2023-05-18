@@ -15,9 +15,15 @@ public class NotificationController {
         this.notificationService = notificationService;
     }
 
-    @MessageMapping("/receive-notification")
+    @MessageMapping("/receive-post-notification")
     public ResponseEntity<?> receiveNotification(@Payload NotificationDto notification) {
-        notificationService.sendNotification(notification);
+        notificationService.sendPostNotification(notification);
+        return ResponseEntity.ok("Notification sent");
+    }
+
+    @MessageMapping("/receive-like-notification")
+    public ResponseEntity<?> receiveLikeNotification(@Payload NotificationDto notification) {
+        notificationService.sendLikeNotification(notification);
         return ResponseEntity.ok("Notification sent");
     }
 }
