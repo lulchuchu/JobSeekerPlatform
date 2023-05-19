@@ -21,6 +21,9 @@ public class Company {
     private String companySize;
     private String location;
 
+    @OneToOne
+    private User admin;
+
     @ManyToMany
     @JoinTable(
             name = "company_followers",

@@ -35,7 +35,7 @@ public class ApplicationController {
         return ResponseEntity.ok("Application added");
     }
 
-    @GetMapping("/applyied/all")
+    @GetMapping("/applied/all")
     public ResponseEntity<?> listAllApplied(Authentication auth, @RequestParam("applicationId") int applicationId) {
         List<UserDtoBasic> users = applicationService.listUserApplied(applicationId);
         return ResponseEntity.ok(users);

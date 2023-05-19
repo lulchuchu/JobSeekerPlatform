@@ -91,4 +91,8 @@ public class User {
     @JsonIgnore
     private List<Notification> triggerNotifications;
 
+    @OneToOne(mappedBy = "admin")
+    @JsonIgnore
+    private Company manageCompany;
+
 }
