@@ -40,7 +40,8 @@ public class NotificationServiceImpl implements NotificationService {
         List<User> followers = sender.get().getFollowers();
 
         for (User follower : followers) {
-            simpMessagingTemplate.convertAndSendToUser(follower.getUsername(), "/notification", notification.getMessage());
+            notification.setSenderAvatar(sender.get().getProfilePicture());
+            simpMessagingTemplate.convertAndSendToUser(follower.getUsername(), "/notification", notification);
         }
 
         Notification noti = new Notification();
@@ -60,7 +61,7 @@ public class NotificationServiceImpl implements NotificationService {
         }
 
         //gui cho nguoi dang bai viet do
-        simpMessagingTemplate.convertAndSendToUser(post.get().getUser().getUsername(), "/notification", notification.getMessage());
+        simpMessagingTemplate.convertAndSendToUser(post.get().getUser().getUsername(), "/notification", notification);
         Notification noti = new Notification();
         noti.setSender(sender.get());
         noti.setPost(post.get());

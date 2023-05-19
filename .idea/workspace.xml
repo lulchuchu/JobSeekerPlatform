@@ -5,161 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update websocket">
-      <change afterPath="$PROJECT_DIR$/Pics/0c15456991ef7ffac71d7bbfb0b7ad02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/1675135813457.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/310433207_3122983671283632_7579759353834957563_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/310885383_889473479133626_6303585773983138846_n.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/439003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/5zT0Elq.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/6z6VK8u.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/95e9411cdf8b1e315e843d37f0fefec6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/Avatar_Aang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/Big-brother-doge-hugging-little-brother-cheems-350x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/Bản sao của ER.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/CV.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/Felis_silvestris_silvestris_small_gradual_decrease_of_quality.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/HH3uHqg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/LotrProject_MiddleEarth_Map_High_Res.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/Untitled Diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/a3808660fcf50b7602e15c6a8ca6c469.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/blankuser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/bolt.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/bolt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/cheem1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/cheem2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/cheem3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/cheem4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/cheem5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/cheem7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/cheem8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/download.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/downlodad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/facebook.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/final.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/google.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/linkedin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/lulchuchu_None_e4fe9a9b-629b-4ea6-9322-fd339421f920 (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/lulchuchu_Ukiyo-e_The_Shire_470742e8-4cf1-4f6d-a4e1-f90f90844589.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/onemount.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/party.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/samurai.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/shinobi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/twitch.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/twitter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pics/viettel.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/RestMessageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/RestNotiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/MessageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/MessageRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/MessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/1675135813457.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/310885383_889473479133626_6303585773983138846_n.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/Avatar_Aang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/Big-brother-doge-hugging-little-brother-cheems-350x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/Bản sao của ER.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/Felis_silvestris_silvestris_small_gradual_decrease_of_quality.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/Untitled Diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/a3808660fcf50b7602e15c6a8ca6c469.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/bolt.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/bolt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/cheem1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/cheem2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/cheem3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/cheem4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/cheem5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/cheem7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/cheem8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/download.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/download.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/downlodad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/facebook.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/google.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/linkedin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/maxresdefault.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/onemount.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/party.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/samurai.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/shinobi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/twitch.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/twitter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pics/viettel.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/Pics/Bản sao của ER.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/Pics/Screenshot 2023-04-13 231940.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/Pics/Untitled Diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/Pics/maxresdefault.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/1675135813457.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/310885383_889473479133626_6303585773983138846_n.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/Avatar_Aang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/Big-brother-doge-hugging-little-brother-cheems-350x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/Bản sao của ER.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/Felis_silvestris_silvestris_small_gradual_decrease_of_quality.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/Untitled Diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/a3808660fcf50b7602e15c6a8ca6c469.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/bolt.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/bolt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/cheem1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/cheem2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/cheem3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/cheem4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/cheem5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/cheem7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/cheem8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/download.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/download.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/downlodad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/facebook.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/google.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/linkedin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/maxresdefault.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/onemount.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/party.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/samurai.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/shinobi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/twitch.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/twitter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Pics/viettel.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Configuration/WebSocketConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/RestNotiController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/websocket/MessageController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/websocket/NotificationController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/NotificationDto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Notification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/NotificationRepo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/MessageServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/NotificationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/Pics/Bản sao của ER.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/Pics/Screenshot 2023-04-13 231940.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/Pics/Untitled Diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/Pics/maxresdefault.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Configuration/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Configuration/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/NotificationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/NotificationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/MessageE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/NotificationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/NotificationRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/RestMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/RestMessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Security/WebSecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/RestMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/RestMessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/MessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/MessageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,7 +258,8 @@
       <workItem from="1684288871165" duration="3147000" />
       <workItem from="1684292140455" duration="7111000" />
       <workItem from="1684375163963" duration="3298000" />
-      <workItem from="1684378986383" duration="12051000" />
+      <workItem from="1684378986383" duration="13351000" />
+      <workItem from="1684461090904" duration="3583000" />
     </task>
     <task id="LOCAL-00001" summary="Create Basic Api">
       <created>1677814749257</created>
@@ -624,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684422413025</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="update websocket">
+      <created>1684423140106</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1684423140106</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,17 +565,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
-          <line>68</line>
+          <line>69</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
-          <line>62</line>
+          <line>63</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -739,7 +600,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java</url>
-          <line>32</line>
+          <line>37</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
