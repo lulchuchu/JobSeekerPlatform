@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Getter
@@ -25,14 +24,6 @@ public class Job {
     private LocalDate startDate;
     private LocalDate leaveDate;
     private String address;
-
-    @ManyToMany
-    @JoinTable(
-            name = "job_skill",
-            joinColumns = @JoinColumn(name = "job_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"job_id", "skill_id"}))
-    private List<Skill> skills;
 
     @ManyToOne
     @JsonIgnore

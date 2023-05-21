@@ -26,4 +26,10 @@ public class NotificationController {
         notificationService.sendLikeNotification(notification);
         return ResponseEntity.ok("Notification sent");
     }
+
+    @MessageMapping("/receive-job-notification")
+    public ResponseEntity<?> receiveJobNotification(@Payload NotificationDto notification) {
+        notificationService.sendJobNotification(notification);
+        return ResponseEntity.ok("Notification sent");
+    }
 }

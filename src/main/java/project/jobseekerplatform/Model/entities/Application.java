@@ -8,10 +8,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-enum Type {
-    FULL_TIME,
-    PART_TIME
-}
 
 @Entity
 @Getter
@@ -26,14 +22,6 @@ public class Application {
     private String type;
     private String onSite;
     private String address;
-    @ManyToMany
-    @JoinTable(
-            name = "application_skill",
-            joinColumns = @JoinColumn(name = "application_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"application_id", "skill_id"}))
-    private List<Skill> skills;
-
     @Column(length = 100000000)
 
     private String description;
@@ -52,4 +40,8 @@ public class Application {
     )
     @JsonIgnore
     private List<User> users;
+
+    @OneToMany(mappedBy = "application")
+    @JsonIgnore
+    private List<Interview> interviews;
 }

@@ -7,12 +7,16 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import project.jobseekerplatform.Model.dto.ApplicationDto;
 import project.jobseekerplatform.Model.dto.FilterDto;
+import project.jobseekerplatform.Model.dto.InterviewDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.Application;
+import project.jobseekerplatform.Model.entities.Interview;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.ApplicationRepo;
 import project.jobseekerplatform.Persistences.CompanyRepo;
+import project.jobseekerplatform.Persistences.InterviewRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.ApplicationService;
 
@@ -27,13 +31,15 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final ApplicationRepo applicationRepo;
     private final UserRepo userRepo;
     private final CompanyRepo companyRepo;
+    private final InterviewRepo interviewRepo;
 
     @Autowired
-    public ApplicationServiceImpl(ModelMapper modelMapper, ApplicationRepo applicationRepo, UserRepo userRepo, CompanyRepo companyRepo) {
+    public ApplicationServiceImpl(ModelMapper modelMapper, ApplicationRepo applicationRepo, UserRepo userRepo, CompanyRepo companyRepo, InterviewRepo interviewRepo, InterviewRepo interviewRepo1) {
         this.modelMapper = modelMapper;
         this.applicationRepo = applicationRepo;
         this.userRepo = userRepo;
         this.companyRepo = companyRepo;
+        this.interviewRepo = interviewRepo1;
     }
 
 
@@ -44,6 +50,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         if (user.isEmpty() || application.isEmpty()) {
             return null;
         }
+
         List<Application> applications = user.get().getApplications();
         List<User> users = application.get().getUsers();
         if (applications.contains(application.get())) {
@@ -119,5 +126,52 @@ public class ApplicationServiceImpl implements ApplicationService {
         User user = userRepo.findById(id).get();
         return user.getApplications().stream()
                 .anyMatch(application -> application.getId() == applicationId);
+    }
+
+    @Override
+    public Application getApplication(int id) {
+        return applicationRepo.findById(id).get();
+    }
+
+    @Override
+    public void setInterview(InterviewDto interviewDto) {
+        Application application = applicationRepo.findById(interviewDto.getApplicationId()).get();
+        User user = userRepo.findById(interviewDto.getUserId()).get();
+        if (interviewRepo.findByApplicationIdAndUserId(interviewDto.getApplicationId(), interviewDto.getUserId()) != null
+        ) {
+            interviewRepo.deleteByApplicationIdAndUserId(interviewDto.getApplicationId(), interviewDto.getUserId());
+        }
+        Interview interview = new Interview();
+        interview.setApplication(application);
+        interview.setUser(user);
+        interview.setTime(interviewDto.getTime());
+        interviewRepo.save(interview);
+        applicationRepo.save(application);
+    }
+
+    @Override
+    public InterviewDto getInterview(int applicationId, int userId) {
+        try {
+            Interview interview = interviewRepo.findByApplicationIdAndUserId(applicationId, userId);
+            InterviewDto interviewDto = new InterviewDto();
+            interviewDto.setApplicationId(applicationId);
+            interviewDto.setUserId(userId);
+            interviewDto.setTime(interview.getTime());
+            return interviewDto;
+
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    @Override
+    public List<ApplicationDto> getAllApplication(int companyId) {
+        return applicationRepo.findAllByCompanyId(companyId).stream().map(
+                (application) -> {
+                    ApplicationDto applicationDto = modelMapper.map(application, ApplicationDto.class);
+                    applicationDto.setNumberOfApplicants(application.getUsers().size());
+                    return applicationDto;
+                }).toList();
     }
 }

@@ -7,7 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import project.jobseekerplatform.Model.dto.ApplicationDto;
 import project.jobseekerplatform.Model.dto.FilterDto;
+import project.jobseekerplatform.Model.dto.InterviewDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.Application;
 import project.jobseekerplatform.Model.entities.User;
@@ -28,6 +30,19 @@ public class ApplicationController {
     public ApplicationController(ApplicationService applicationService) {
         this.applicationService = applicationService;
     }
+
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<?> getApplication(@PathVariable("id") int id) {
+        Application application = applicationService.getApplication(id);
+        return ResponseEntity.ok(application);
+    }
+
+    @GetMapping("/all/{companyId}")
+    public ResponseEntity<?> getApplicationByCompany(@PathVariable("companyId") int companyId) {
+        List<ApplicationDto> application = applicationService.getAllApplication(companyId);
+        return ResponseEntity.ok(application);
+    }
+
 
     @PostMapping("/add")
     public ResponseEntity<?> addApplication(Authentication auth, @RequestBody Application application) {
@@ -73,5 +88,18 @@ public class ApplicationController {
         User user = userDetail.getUser();
         Application application = applicationService.apply(user.getId(), applicationId);
         return ResponseEntity.ok(application);
+    }
+
+    @CrossOrigin
+    @PostMapping("/setInterview")
+    public ResponseEntity<?> setInterview(@RequestBody InterviewDto interviewDto) {
+        applicationService.setInterview(interviewDto);
+        return ResponseEntity.ok("Interview set");
+    }
+
+    @GetMapping("/getInterview")
+    public ResponseEntity<?> getInterview(@RequestParam("applicationId") int applicationId, @RequestParam("userId") int userId) {
+        InterviewDto interviewDto = applicationService.getInterview(applicationId, userId);
+        return ResponseEntity.ok(interviewDto);
     }
 }

@@ -41,7 +41,7 @@ public class NotificationServiceImpl implements NotificationService {
 
         for (User follower : followers) {
             notification.setSenderAvatar(sender.get().getProfilePicture());
-            simpMessagingTemplate.convertAndSendToUser(follower.getUsername(), "/notification", notification);
+            simpMessagingTemplate.convertAndSendToUser(follower.getName(), "/notification", notification);
         }
 
         Notification noti = new Notification();
@@ -60,8 +60,10 @@ public class NotificationServiceImpl implements NotificationService {
             return;
         }
 
+        User receiver = post.get().getUser();
+        notification.setSenderAvatar(sender.get().getProfilePicture());
         //gui cho nguoi dang bai viet do
-        simpMessagingTemplate.convertAndSendToUser(post.get().getUser().getUsername(), "/notification", notification);
+        simpMessagingTemplate.convertAndSendToUser(receiver.getName(), "/notification", notification);
         Notification noti = new Notification();
         noti.setSender(sender.get());
         noti.setPost(post.get());
@@ -77,13 +79,24 @@ public class NotificationServiceImpl implements NotificationService {
         List<NotificationDto> likeNotification = notificationRepo.findAllByReceiversContaining(user).stream().map(
                 (noti) -> {
                     NotificationDto dto = new NotificationDto();
-                    dto.setSenderId(noti.getSender().getId());
-                    dto.setPostId(noti.getPost().getId());
+                    dto.setId(noti.getId());
+                    if (noti.getSender() != null) dto.setSenderId(noti.getSender().getId());
+                    if (noti.getPost() != null) dto.setPostId(noti.getPost().getId());
                     dto.setMessage(noti.getMessage());
-                    dto.setSenderAvatar(noti.getSender().getProfilePicture());
+                    if (noti.getSender() != null) dto.setSenderAvatar(noti.getSender().getProfilePicture());
                     return dto;
                 }
         ).toList();
         return likeNotification;
+    }
+
+    @Override
+    public void sendJobNotification(NotificationDto notification) {
+        Optional<User> receiver = userRepo.findById(notification.getReceiverId()); //bai dang
+        simpMessagingTemplate.convertAndSendToUser(receiver.get().getName(), "/notification", notification);
+        Notification noti = new Notification();
+        noti.setMessage(notification.getMessage());
+        noti.setReceivers(List.of(receiver.get()));
+        notificationRepo.save(noti);
     }
 }

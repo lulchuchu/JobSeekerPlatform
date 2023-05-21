@@ -16,4 +16,5 @@ public class NotificationDto implements Serializable {
     private String senderName;
     private String senderAvatar;
     private int postId;
+    private int receiverId;
 }

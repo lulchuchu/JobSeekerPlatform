@@ -25,4 +25,6 @@ public interface ApplicationRepo extends JpaRepository<Application, Integer> {
     List<Application> findByComId(int id, Pageable pageable);
 
     long countByCompanyId(int companyId);
+
+    List<Application> findAllByCompanyId(int companyId);
 }

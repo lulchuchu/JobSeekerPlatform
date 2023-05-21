@@ -37,14 +37,6 @@ public class User {
     private Role role;
 
     @ManyToMany
-    @JoinTable(
-            name = "user_skill",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "skill_id"}))
-    private List<Skill> skills;
-
-    @ManyToMany
     @JsonIgnore
     @JoinTable(name = "followers_following",
             joinColumns = @JoinColumn(name = "follower_id"),
@@ -94,5 +86,9 @@ public class User {
     @OneToOne(mappedBy = "admin")
     @JsonIgnore
     private Company manageCompany;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Interview> interview;
 
 }
