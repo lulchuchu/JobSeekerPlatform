@@ -4,42 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update mange applicant of a job">
+    <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update applicant and  websocket">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c463d321-b061-4059-a66c-b556c9444599.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pics/cheem4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Pics/cheem4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pics/cheem5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Pics/cheem5.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/SkillController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/websocket/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Init.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/ApplicationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/ApplicationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/NotificationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/NotificationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Skill.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/ApplicationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/ApplicationRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Persistences/SkillRepo.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/ApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/SkillServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/SkillService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/PostServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/ApplicationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/SkillController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/websocket/NotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/websocket/NotificationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Job.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Job.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Skill.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Persistences/SkillRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/ApplicationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/ApplicationDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/ApplicationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/ApplicationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/SkillServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/SkillService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/FileStorageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/MessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/MessageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Services/Implement/PostServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +273,8 @@
       <workItem from="1684506973940" duration="82000" />
       <workItem from="1684507249453" duration="2962000" />
       <workItem from="1684559153341" duration="10459000" />
-      <workItem from="1684632732542" duration="14218000" />
+      <workItem from="1684632732542" duration="27178000" />
+      <workItem from="1684686253066" duration="1692000" />
     </task>
     <task id="LOCAL-00001" summary="Create Basic Api">
       <created>1677814749257</created>
@@ -537,7 +521,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684489704439</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="update applicant and  websocket">
+      <created>1684654846366</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1684654846366</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update applicant and  websocket">
+      <created>1684654863372</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1684654863372</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,7 +582,8 @@
     <MESSAGE value="update websocket" />
     <MESSAGE value="update notification and message" />
     <MESSAGE value="update mange applicant of a job" />
-    <option name="LAST_COMMIT_MESSAGE" value="update mange applicant of a job" />
+    <MESSAGE value="update applicant and  websocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="update applicant and  websocket" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -599,17 +598,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java</url>
-          <line>91</line>
+          <line>101</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java</url>
-          <line>115</line>
+          <line>125</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/ApplicationServiceImpl.java</url>
-          <line>120</line>
+          <line>130</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -654,7 +653,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/MessageServiceImpl.java</url>
-          <line>39</line>
+          <line>42</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -666,6 +665,127 @@
           <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Services/Implement/NotificationServiceImpl.java</url>
           <line>99</line>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/WebSecurityConfig.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtTokenProvider.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtTokenProvider.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtTokenProvider.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtAuthenticationFilter.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtAuthenticationFilter.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/jwt/JwtAuthenticationFilter.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Controller/AuthController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Security/UserDetail.java</url>
+          <line>15</line>
+          <properties field="user" class="project.jobseekerplatform.Security.UserDetail" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

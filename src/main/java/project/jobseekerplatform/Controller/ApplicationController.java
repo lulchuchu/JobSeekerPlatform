@@ -45,7 +45,7 @@ public class ApplicationController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<?> addApplication(Authentication auth, @RequestBody Application application) {
+    public ResponseEntity<?> addApplication(Authentication auth, @RequestBody ApplicationDto application) {
         applicationService.addApplication(application, auth);
         return ResponseEntity.ok("Application added");
     }

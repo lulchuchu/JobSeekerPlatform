@@ -17,9 +17,7 @@ import project.jobseekerplatform.Services.PostService;
 import project.jobseekerplatform.Services.UserService;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -39,6 +37,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> getNewsFeed(int userId) {
+        //Tim nhung nguoi user nay follow va lay ra nhung post cua nhung nguoi do
         User user = userService.findById(userId);
         List<User> followingPeople = user.getFollowing();
         List<PostDto> newsfeed = new ArrayList<>();
@@ -50,9 +49,8 @@ public class PostServiceImpl implements PostService {
                 return postDto;
             }).toList());
         }
+        Collections.sort(newsfeed, Comparator.comparing(PostDto::getPostedDate, Collections.reverseOrder()));
         return newsfeed;
-
-
     }
 
     @Override
@@ -136,7 +134,6 @@ public class PostServiceImpl implements PostService {
     @Override
     public Integer createPost(PostDto postDto, Integer id) {
         User user = userService.findById(id);
-//        System.out.println(user);
         Post post = new Post();
         post.setUser(user);
         post.setContent(postDto.getContent());

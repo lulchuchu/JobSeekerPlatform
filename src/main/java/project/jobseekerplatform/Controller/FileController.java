@@ -28,9 +28,6 @@ public class FileController {
             produces = MediaType.IMAGE_JPEG_VALUE
     )
     public ResponseEntity<byte[]> getImage(@RequestParam String path) throws IOException {
-//        var imgFile = new ClassPathResource("static/Pics/" + path);
-//        System.out.println("imgasdf" + imgFile.getFile().getAbsolutePath());
-//        byte[] bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
 
         Resource imgFile = fileStorageService.load(path);
         byte[] bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());

@@ -42,6 +42,7 @@ private final Path root = Paths.get("Pics");
             } else {
                 throw new RuntimeException("Could not read the file!");
             }
+
         } catch (MalformedURLException e) {
             throw new RuntimeException("Error: " + e.getMessage());
         }

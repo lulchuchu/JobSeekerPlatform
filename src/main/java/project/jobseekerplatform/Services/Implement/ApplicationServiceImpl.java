@@ -50,8 +50,9 @@ public class ApplicationServiceImpl implements ApplicationService {
         if (user.isEmpty() || application.isEmpty()) {
             return null;
         }
-
+        //Xem nhung cong viec ma user da apply
         List<Application> applications = user.get().getApplications();
+        //Xem nhung user da apply vao cong viec nay
         List<User> users = application.get().getUsers();
         if (applications.contains(application.get())) {
             applications.remove(application.get());
@@ -74,8 +75,19 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public void addApplication(Application application, Authentication auth) {
-        applicationRepo.save(application);
+    public void addApplication(ApplicationDto application, Authentication auth) {
+        System.out.println("addApplication: " + application);
+        Application newApplication = new Application();
+        newApplication.setTitle(application.getTitle());
+        newApplication.setCompany(companyRepo.findById(application.getCompanyId()).get());
+        newApplication.setAddress(application.getAddress());
+        newApplication.setExperience(application.getExperience());
+        newApplication.setType(application.getType());
+        newApplication.setOnSite(application.getOnSite());
+        newApplication.setDescription(application.getDescription());
+        newApplication.setStartDate(application.getStartDate());
+        newApplication.setEndDate(application.getEndDate());
+        applicationRepo.save(newApplication);
     }
 
     @Override
@@ -135,12 +147,16 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public void setInterview(InterviewDto interviewDto) {
+        //Lay ra cong viec
         Application application = applicationRepo.findById(interviewDto.getApplicationId()).get();
+        //Lay ra user
         User user = userRepo.findById(interviewDto.getUserId()).get();
+        //Xoa interview cu neu co
         if (interviewRepo.findByApplicationIdAndUserId(interviewDto.getApplicationId(), interviewDto.getUserId()) != null
         ) {
             interviewRepo.deleteByApplicationIdAndUserId(interviewDto.getApplicationId(), interviewDto.getUserId());
         }
+        //Tao interview moi
         Interview interview = new Interview();
         interview.setApplication(application);
         interview.setUser(user);

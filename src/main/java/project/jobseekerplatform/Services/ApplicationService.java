@@ -19,7 +19,7 @@ public interface ApplicationService {
 
     boolean checkApply(int id, int applicationId);
 
-    void addApplication(Application application, Authentication auth);
+    void addApplication(ApplicationDto application, Authentication auth);
 
     Page<Application> listApplicationByCompany(int companyId, Pageable pageable);
 

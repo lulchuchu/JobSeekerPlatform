@@ -27,16 +27,19 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void sendMessage(MessageDto messageDto) {
+        //Tao mot bien class Message moi va them thuoc tinh Dto
         MessageE message = new MessageE();
         message.setSender(userRepo.findById(messageDto.getSenderId()).get());
         message.setReceiver(userRepo.findById(messageDto.getReceiverId()).get());
         message.setContents(messageDto.getContents());
         message.setTime(LocalDateTime.now());
+        //Tao mot bien class MessageDto moi va them thuoc tinh tu class Message
         messageDto.setSenderName(message.getSender().getName());
         messageDto.setReceiverName(message.getReceiver().getName());
         messageDto.setSenderAvatar(message.getSender().getProfilePicture());
         messageDto.setReceiverAvatar(message.getReceiver().getProfilePicture());
         messageDto.setTime(message.getTime());
+        //Gui tin nhan den nguoi nhan
         simpMessagingTemplate.convertAndSendToUser(message.getReceiver().getName(), "/message", messageDto);
         messageRepo.save(message);
     }

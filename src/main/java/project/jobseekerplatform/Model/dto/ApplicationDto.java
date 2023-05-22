@@ -20,7 +20,9 @@ public class ApplicationDto implements Serializable {
     private String type;
     private String onSite;
     private String address;
+    private String description;
     private LocalDate startDate;
     private LocalDate endDate;
+    private int companyId;
     private int numberOfApplicants;
 }
