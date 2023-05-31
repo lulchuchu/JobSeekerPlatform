@@ -1,6 +1,8 @@
 package project.jobseekerplatform.Model.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -8,7 +10,9 @@ import java.time.LocalDate;
 /**
  * A DTO for the {@link project.jobseekerplatform.Model.entities.Comment} entity
  */
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class CommentDto implements Serializable {
     private int id;
     private String contents;
