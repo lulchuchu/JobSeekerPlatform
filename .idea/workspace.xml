@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c434fbdd-6adc-49ec-bcca-64b0fa9fcbda" name="Changes" comment="update applicant and  websocket">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/ApplicationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/ApplicationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/CommentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/CommentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/CompanyDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/CompanyDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/FilterDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/FilterDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/InterviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/InterviewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/LikeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/LikeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/PostDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/PostDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Interview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Interview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/jobseekerplatform/Model/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/ApplicationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/ApplicationDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/CommentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/CommentDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/CompanyDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/CompanyDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/FilterDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/FilterDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/InterviewDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/InterviewDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/LikeDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/LikeDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/PostDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/PostDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Interview.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Interview.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Job.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Job.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/project/jobseekerplatform/Model/entities/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +281,7 @@
       <workItem from="1685177706301" duration="327000" />
       <workItem from="1685178255954" duration="963000" />
       <workItem from="1685347356772" duration="658000" />
-      <workItem from="1685497207851" duration="1091000" />
+      <workItem from="1685497207851" duration="1798000" />
     </task>
     <task id="LOCAL-00001" summary="Create Basic Api">
       <created>1677814749257</created>
@@ -550,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684713975161</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="update applicant and  websocket">
+      <created>1685500497166</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1685500497166</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
