@@ -14,21 +14,21 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String username;
     private String shortDescription;
     private String address;
-    //    @JsonIgnore
     private String password;
     private String profilePicture;
     private String CV;
 
-    @ManyToMany(mappedBy = "followers")
+    @ManyToMany(mappedBy = "followers", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Company> followingCompany;
 
@@ -38,7 +38,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JsonIgnore
     @JoinTable(name = "followers_following",
             joinColumns = @JoinColumn(name = "follower_id"),
@@ -46,11 +46,11 @@ public class User {
             uniqueConstraints = @UniqueConstraint(columnNames = {"follower_id", "following_id"}))
     private List<User> following;
 
-    @ManyToMany(mappedBy = "following", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "following", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<User> followers;
 
-    @ManyToMany(mappedBy = "usersLiked")
+    @ManyToMany(mappedBy = "usersLiked", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Post> postsLiked;
 
@@ -65,11 +65,11 @@ public class User {
     @JsonIgnore
     private List<Post> posts;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Application> applications;
 
-    @ManyToMany(mappedBy = "receivers")
+    @ManyToMany(mappedBy = "receivers", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Notification> notifications;
 
@@ -85,7 +85,7 @@ public class User {
     @JsonIgnore
     private List<Notification> triggerNotifications;
 
-    @OneToOne(mappedBy = "admin")
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Company manageCompany;
 

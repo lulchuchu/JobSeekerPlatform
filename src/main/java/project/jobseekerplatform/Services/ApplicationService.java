@@ -12,7 +12,7 @@ import project.jobseekerplatform.Model.entities.Application;
 import java.util.List;
 
 public interface ApplicationService {
-    //    Application findById(int id);
+    // Application findById(int id);
     Application apply(int userId, int applicationId);
 
     List<UserDtoBasic> listUserApplied(int applicationId);
@@ -24,7 +24,6 @@ public interface ApplicationService {
     Page<Application> listApplicationByCompany(int companyId, Pageable pageable);
 
     Page<Application> listAllApplication(FilterDto filterDto, Pageable pageable);
-
 
     Application getApplication(int id);
 

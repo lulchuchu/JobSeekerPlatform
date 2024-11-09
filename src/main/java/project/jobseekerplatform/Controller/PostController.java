@@ -6,6 +6,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import project.jobseekerplatform.Model.dto.PostDto;
 import project.jobseekerplatform.Model.entities.Post;
@@ -35,9 +37,10 @@ public class PostController {
     }
 
     @GetMapping("/newsfeed")
+    @Transactional(propagation = Propagation.REQUIRED)
     public ResponseEntity<?> getNewsFeed(Authentication auth) {
         UserDetail userDetail = (UserDetail)auth.getPrincipal();
-        List<PostDto> newsfeed = postService.getNewsFeed(userDetail.getUser().getId());
+        List<PostDto> newsfeed = postService.getNewsFeed(userDetail.getUser());
 //        kafkaTemplate.send("newsfeed-topic", newsfeed.toString());
         return ResponseEntity.ok(newsfeed);
     }

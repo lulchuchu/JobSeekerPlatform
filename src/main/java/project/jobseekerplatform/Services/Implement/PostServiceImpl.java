@@ -12,6 +12,7 @@ import project.jobseekerplatform.Model.dto.PostDto;
 import project.jobseekerplatform.Model.entities.Post;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.PostRepo;
+import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.FileStorageService;
 import project.jobseekerplatform.Services.PostService;
 import project.jobseekerplatform.Services.UserService;
@@ -25,24 +26,26 @@ public class PostServiceImpl implements PostService {
     private final PostRepo postRepo;
     private final UserService userService;
     private final FileStorageService fileStorageService;
+    private final UserRepo userRepo;
 
 
     @Autowired
-    public PostServiceImpl(ModelMapper modelMapper, PostRepo postRepo, UserService userService, FileStorageService fileStorageService) {
+    public PostServiceImpl(ModelMapper modelMapper, PostRepo postRepo, UserService userService, FileStorageService fileStorageService, UserRepo userRepo) {
         this.modelMapper = modelMapper;
         this.postRepo = postRepo;
         this.userService = userService;
         this.fileStorageService = fileStorageService;
+        this.userRepo = userRepo;
     }
 
     @Override
-    public List<PostDto> getNewsFeed(int userId) {
+    public List<PostDto> getNewsFeed(User user) {
         //Tim nhung nguoi user nay follow va lay ra nhung post cua nhung nguoi do
-        User user = userService.findById(userId);
-        List<User> followingPeople = user.getFollowing();
+//        List<User> followingPeople = user.getFollowing();
+        List<User> followingPeople = userRepo.findAllByFollowersIs(user);
         List<PostDto> newsfeed = new ArrayList<>();
-        for (User follower : followingPeople) {
-            newsfeed.addAll(postRepo.findAllByUserId(follower.getId()).stream().map(p -> {
+        for (User following : followingPeople) {
+            newsfeed.addAll(postRepo.findAllByUserId(following.getId()).stream().map(p -> {
                 PostDto postDto = modelMapper.map(p, PostDto.class);
                 postDto.setLikeCount(p.getUsersLiked().size());
                 postDto.setCommentCount(p.getComment().size());
@@ -80,9 +83,10 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public boolean checkReact(int postId, int userId) {
-        User user = userService.findById(userId);
-        Post post = postRepo.findById(postId).get();
-        return post.getUsersLiked().contains(user);
+//        User user = userService.findById(userId);
+//        Post post = postRepo.findById(postId).get();
+//        return post.getUsersLiked().contains(user);
+        return postRepo.checkLike(postId, userId) != 0;
     }
 
     @Override

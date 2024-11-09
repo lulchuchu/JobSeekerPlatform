@@ -6,6 +6,7 @@ import project.jobseekerplatform.Model.dto.CommentDto;
 import project.jobseekerplatform.Model.dto.LikeDto;
 import project.jobseekerplatform.Model.dto.PostDto;
 import project.jobseekerplatform.Model.entities.Post;
+import project.jobseekerplatform.Model.entities.User;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface PostService {
 
     void updatePost(PostDto postDto);
 
-    List<PostDto> getNewsFeed(int userId);
+    List<PostDto> getNewsFeed(User user);
 
     Page<PostDto> getPostByUserId(int userId, Pageable pageable);
 

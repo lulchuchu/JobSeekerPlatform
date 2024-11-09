@@ -9,12 +9,15 @@ import project.jobseekerplatform.Model.entities.User;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
-    User findByUsername(String username);
+    Optional<User> findByUsername(String username);
 
-    User findByEmail(String email);
+    Optional<User> findByEmail(String email);
+
+    Optional<User> findByEmailOrUsername(String email, String username);
 
     @Query("SELECT u FROM User u INNER join Job j ON u.id = j.user.id WHERE j.company.id = ?1")
     List<User> findAllByCompany(int companyId);
@@ -33,4 +36,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Transactional
     @Query("UPDATE User u SET u.CV = :path WHERE u.id = :id")
     void updateCV(Integer id, String path);
+
+    List<User> findAllByFollowersIs(User follower);
 }

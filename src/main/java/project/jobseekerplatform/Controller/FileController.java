@@ -1,5 +1,6 @@
 package project.jobseekerplatform.Controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
@@ -14,7 +15,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/file")
 @CrossOrigin
-
+@Slf4j
 public class FileController {
     private final FileStorageService fileStorageService;
 
@@ -24,11 +25,11 @@ public class FileController {
     }
 
     @GetMapping(
-            value = "/getImage",
+            value = "/getImage/{path}",
             produces = MediaType.IMAGE_JPEG_VALUE
     )
-    public ResponseEntity<byte[]> getImage(@RequestParam String path) throws IOException {
-
+    public ResponseEntity<byte[]> getImage(@PathVariable String path) throws IOException {
+        log.info("Inside getImage with path = {}", path);
         Resource imgFile = fileStorageService.load(path);
         byte[] bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
 
@@ -40,10 +41,11 @@ public class FileController {
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadFile(@RequestParam(value = "files", required = false) MultipartFile[] files) {
-        String fileName = "";
+        log.info("Inside update controller");
+        StringBuilder fileName = new StringBuilder();
         for (MultipartFile file : files) {
             fileStorageService.save(file);
-            fileName += file.getOriginalFilename() + ",";
+            fileName.append(file.getOriginalFilename()).append(",");
         }
         System.out.println(fileName.substring(0, fileName.length() - 1));
         return ResponseEntity.ok(fileName.substring(0, fileName.length() - 1));

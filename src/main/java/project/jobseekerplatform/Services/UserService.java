@@ -19,6 +19,8 @@ public interface UserService extends UserDetailsService {
 
     User findByEmail(String email);
 
+    String checkExistedUser(String username, String email);
+
     Boolean checkDuplicateUserName(String username);
 
     Boolean checkDuplicateEmail(String email);

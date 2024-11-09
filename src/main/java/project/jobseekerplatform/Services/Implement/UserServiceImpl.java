@@ -51,35 +51,46 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUsername(String username) {
-        User user = userRepo.findByUsername(username);
-        if (user == null) {
+        Optional<User> user = userRepo.findByUsername(username);
+        if (user.isEmpty()) {
             throw new RuntimeException("User not found");
         }
-        return user;
+        return user.get();
     }
 
 
     @Override
     public User findByEmail(String email) {
-        User user = userRepo.findByEmail(email);
-        if (user == null) {
+        Optional<User> user = userRepo.findByEmail(email);
+        if (user.isEmpty()) {
             throw new RuntimeException("User not found");
         }
-        return user;
+        return user.orElse(null);
+    }
+
+    @Override
+    public String checkExistedUser(String username, String email) {
+        Optional<User> user = userRepo.findByEmailOrUsername(email, username);
+        if (user.isEmpty()) {
+            return "OK";
+        }
+        if (user.get().getEmail().equals(email)) {
+            return "EMAIL";
+        }
+        return "USERNAME";
     }
 
     @Override
     public Boolean checkDuplicateUserName(String username) {
-        User user = userRepo.findByUsername(username);
-        return user != null;
+        Optional<User> user = userRepo.findByUsername(username);
+        return user.isPresent();
     }
 
     @Override
     public Boolean checkDuplicateEmail(String email) {
-        User user = userRepo.findByEmail(email);
-        return user != null;
+        Optional<User> user = userRepo.findByEmail(email);
+        return user.isPresent();
     }
-
 
     @Override
     public void addFollow(int userId, int followId) {
@@ -184,11 +195,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) {
         // Kiểm tra xem user có tồn tại trong database không?
-        User user = userRepo.findByUsername(username);
-        if (user == null) {
+        Optional<User> user = userRepo.findByUsername(username);
+        if (user.isEmpty()) {
             throw new UsernameNotFoundException(username);
         }
-        return new UserDetail(user);
+        return new UserDetail(user.get());
     }
 
     @Override
