@@ -23,8 +23,8 @@ public class Company {
     private String companySize;
     private String location;
 
-    @OneToOne
-    private User admin;
+    @OneToMany
+    private List<User> admin;
 
     @ManyToMany
     @JoinTable(

@@ -21,6 +21,8 @@ import project.jobseekerplatform.Security.jwt.JwtResponse;
 import project.jobseekerplatform.Security.jwt.JwtTokenProvider;
 import project.jobseekerplatform.Services.UserService;
 
+import java.util.Optional;
+
 @Slf4j
 @RestController
 @CrossOrigin
@@ -63,7 +65,7 @@ public class AuthController {
         } else if (status.equals("USERNAME")) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username đã tồn tại");
         }
-        Role role = Role.USER;
+        Role role = Optional.ofNullable(user.getRole()).orElse(Role.USER);
         String password = user.getPassword();
         user.setRole(role);
         user.setPassword(passwordEncoder.encode(password));

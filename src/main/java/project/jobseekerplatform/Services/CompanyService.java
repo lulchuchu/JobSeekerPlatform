@@ -17,4 +17,8 @@ public interface CompanyService {
     boolean checkFollow(int userId, int companyId);
 
     List<CompanyDto> getAllCompanies();
+
+    void grantUserToCompany(int companyId, int userId);
+
+    boolean checkAdmin(int companyId, int userId);
 }

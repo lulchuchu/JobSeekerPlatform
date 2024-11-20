@@ -3,6 +3,8 @@ package project.jobseekerplatform.Services.Implement;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.jobseekerplatform.Exception.ResourceException;
+import project.jobseekerplatform.Model.Role;
 import project.jobseekerplatform.Model.dto.CompanyDto;
 import project.jobseekerplatform.Model.entities.Company;
 import project.jobseekerplatform.Model.entities.User;
@@ -65,6 +67,32 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<CompanyDto> getAllCompanies() {
         return companyRepo.findAll().stream().map(company -> modelMapper.map(company, CompanyDto.class)).toList();
+    }
+
+    @Override
+    public void grantUserToCompany(int companyId, int userId) {
+        Optional<User> u = userRepo.findById(userId);
+        Optional<Company> c = companyRepo.findById(companyId);
+        if (u.isEmpty() || c.isEmpty()) {
+            throw new ResourceException("User or company not found");
+        }
+        User user = u.get();
+        user.setRole(Role.ADMIN);
+        user.setManageCompany(c.get());
+        userRepo.save(user);
+    }
+
+    @Override
+    public boolean checkAdmin(int companyId, int userId) {
+        Optional<User> u = userRepo.findById(userId);
+        if (u.isEmpty()) {
+            throw new ResourceException("User not found");
+        }
+        if (u.get().getManageCompany() == null) {
+            return false;
+        }
+
+        return u.get().getManageCompany().getId() == companyId;
     }
 
     @Override
