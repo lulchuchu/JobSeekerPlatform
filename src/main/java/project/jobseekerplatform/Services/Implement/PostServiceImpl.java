@@ -1,16 +1,20 @@
 package project.jobseekerplatform.Services.Implement;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import project.jobseekerplatform.Exception.NotFoundException;
+import project.jobseekerplatform.Exception.ResourceException;
 import project.jobseekerplatform.Model.dto.CommentDto;
 import project.jobseekerplatform.Model.dto.LikeDto;
 import project.jobseekerplatform.Model.dto.PostDto;
 import project.jobseekerplatform.Model.entities.Post;
 import project.jobseekerplatform.Model.entities.User;
+import project.jobseekerplatform.Persistences.CommentRepo;
 import project.jobseekerplatform.Persistences.PostRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.FileStorageService;
@@ -18,24 +22,29 @@ import project.jobseekerplatform.Services.PostService;
 import project.jobseekerplatform.Services.UserService;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
+@Slf4j
 public class PostServiceImpl implements PostService {
     private final ModelMapper modelMapper;
     private final PostRepo postRepo;
     private final UserService userService;
     private final FileStorageService fileStorageService;
     private final UserRepo userRepo;
+    private final CommentRepo commentRepo;
 
 
     @Autowired
-    public PostServiceImpl(ModelMapper modelMapper, PostRepo postRepo, UserService userService, FileStorageService fileStorageService, UserRepo userRepo) {
+    public PostServiceImpl(ModelMapper modelMapper, PostRepo postRepo, UserService userService, FileStorageService fileStorageService, UserRepo userRepo, CommentRepo commentRepo) {
         this.modelMapper = modelMapper;
         this.postRepo = postRepo;
         this.userService = userService;
         this.fileStorageService = fileStorageService;
         this.userRepo = userRepo;
+        this.commentRepo = commentRepo;
     }
 
     @Override
@@ -45,14 +54,13 @@ public class PostServiceImpl implements PostService {
         List<User> followingPeople = userRepo.findAllByFollowersIs(user);
         List<PostDto> newsfeed = new ArrayList<>();
         for (User following : followingPeople) {
-            newsfeed.addAll(postRepo.findAllByUserId(following.getId()).stream().map(p -> {
+            newsfeed.addAll(postRepo.findAllByUserIdOrderByPostedDateDesc(following.getId()).stream().map(p -> {
                 PostDto postDto = modelMapper.map(p, PostDto.class);
                 postDto.setLikeCount(p.getUsersLiked().size());
                 postDto.setCommentCount(p.getComment().size());
                 return postDto;
             }).toList());
         }
-        Collections.sort(newsfeed, Comparator.comparing(PostDto::getPostedDate, Collections.reverseOrder()));
         return newsfeed;
     }
 
@@ -103,8 +111,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public int countLike(Integer postId) {
-        Post post = postRepo.findById(postId).get();
-        return post.getUsersLiked().size();
+        return postRepo.countLike(postId);
     }
 
 
@@ -127,17 +134,12 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<CommentDto> getComment(int postId) {
-        Optional<Post> post = postRepo.findById(postId);
-        if (post.isEmpty()) {
-            throw new RuntimeException("Post not found");
-        }
-        return post.get().getComment().stream().map(c -> modelMapper.map(c, CommentDto.class)).toList();
+        return commentRepo.findAllByPostId(postId).stream().map(p -> modelMapper.map(p, CommentDto.class)).toList();
     }
 
 
     @Override
-    public Integer createPost(PostDto postDto, Integer id) {
-        User user = userService.findById(id);
+    public Integer createPost(PostDto postDto, User user) {
         Post post = new Post();
         post.setUser(user);
         post.setContent(postDto.getContent());
@@ -157,21 +159,24 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deletePost(int postId) {
+    public void deletePost(int postId, User user) {
         Post post = postRepo.findById(postId).orElse(null);
+
         if (post == null) {
-            throw new RuntimeException("User not found");
+            throw new NotFoundException("Post not found");
+        }
+        if (post.getUser().getId() != user.getId()) {
+            throw new ResourceException("Cannot delete this post");
         }
         postRepo.deleteById(postId);
     }
 
     @Override
     public void updatePost(PostDto postDto) {
-        Post post = postRepo.findById(postDto.getId()).orElse(null);
-        if (post == null) {
-            throw new RuntimeException("Post not found");
+        try {
+            postRepo.updatePostById(postDto.getId(), postDto.getContent());
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
         }
-        postRepo.updatePostById(postDto.getId(), postDto.getContent());
     }
-
 }

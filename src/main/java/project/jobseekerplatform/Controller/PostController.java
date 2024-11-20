@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import project.jobseekerplatform.Model.dto.PostDto;
-import project.jobseekerplatform.Model.entities.Post;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Security.UserDetail;
@@ -70,7 +69,7 @@ public class PostController {
     @PostMapping("/create")
     public ResponseEntity<?> createPost(@RequestBody PostDto postDto, Authentication auth) {
         UserDetail userDetail = (UserDetail) auth.getPrincipal();
-        int postId = postService.createPost(postDto, userDetail.getUser().getId());
+        int postId = postService.createPost(postDto, userDetail.getUser());
 //        kafkaTemplate.send("post-topic", postDto.toString());
 //        return ResponseEntity.ok("Post created successful");
         return ResponseEntity.ok(postId);
@@ -81,13 +80,8 @@ public class PostController {
     public ResponseEntity<?> deletePost(@PathVariable int postId, Authentication auth){
         UserDetail userDetail = (UserDetail)auth.getPrincipal();
         User user = userDetail.getUser();
-        List<Integer> postIds = user.getPosts().stream().map(Post::getId).toList();
-        if (postIds.contains(postId)) {
-            postService.deletePost(postId);
-            return ResponseEntity.ok("Post deleted successful");
-        } else {
-            return ResponseEntity.ok("You can't delete this post");
-        }
+        postService.deletePost(postId, user);
+        return ResponseEntity.ok("Post deleted successful");
     }
 
     @GetMapping("/show/comment")

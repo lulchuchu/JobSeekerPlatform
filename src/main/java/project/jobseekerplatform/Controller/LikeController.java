@@ -10,7 +10,6 @@ import project.jobseekerplatform.Services.PostService;
 @RestController
 @RequestMapping("/api/like")
 @CrossOrigin
-
 public class LikeController {
     private final PostService postService;
 

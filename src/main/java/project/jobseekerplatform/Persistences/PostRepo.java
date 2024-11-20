@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface PostRepo extends JpaRepository<Post, Integer> {
-    List<Post> findAllByUserId(int userId);
+    List<Post> findAllByUserIdOrderByPostedDateDesc(int userId);
 
     @Modifying
     @Transactional
@@ -32,5 +32,8 @@ public interface PostRepo extends JpaRepository<Post, Integer> {
 
     @Query(value = "select count(*) from post_react where post_id = :postId and user_id = :userId", nativeQuery = true)
     int checkLike(@Param("postId") int postId, @Param("userId") int userId);
+
+    @Query("SELECT size(p.usersLiked) FROM Post p WHERE p.id = :postId")
+    int countLike(@Param("postId") int postId);
 }
 

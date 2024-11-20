@@ -11,11 +11,11 @@ import project.jobseekerplatform.Model.entities.User;
 import java.util.List;
 
 public interface PostService {
-    Integer createPost(PostDto postDto, Integer id);
+    Integer createPost(PostDto postDto, User user);
 
     Post findPost(int postId);
 
-    void deletePost(int postId);
+    void deletePost(int postId, User user);
 
     void updatePost(PostDto postDto);
 

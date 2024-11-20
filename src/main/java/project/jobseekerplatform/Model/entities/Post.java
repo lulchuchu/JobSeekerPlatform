@@ -29,7 +29,7 @@ public class Post {
     @ManyToOne
     private Company company;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "post_react",
             joinColumns = @JoinColumn(name = "post_id"),

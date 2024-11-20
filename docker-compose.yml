@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1411
+      MYSQL_DATABASE: job
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+  jobseeker-platform:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jobseeker-platform
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/job
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1411
+    depends_on:
+      mysql:
+        condition: service_healthy
+#    volumes:
+#      - mysql-data:/var/lib/mysql
+#
+#volumes:
+#  mysql-data:
