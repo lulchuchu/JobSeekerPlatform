@@ -5,6 +5,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import project.jobseekerplatform.Exception.ResourceException;
+import project.jobseekerplatform.Model.entities.User;
+import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.FileStorageService;
 
 import java.io.InputStream;
@@ -12,13 +15,19 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 @Service
 @Slf4j
 public class FileStorageServiceImpl implements FileStorageService {
 
-    //    private final Path root = Paths.get("src/main/resources/static/Pics");
-    private final Path root = Paths.get("Pics");
+    // private final Path root = Paths.get("src/main/resources/static/Pics");
+    private final Path root = Paths.get("Files");
+    private final UserRepo userRepo;
+
+    public FileStorageServiceImpl(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @Override
     public void save(MultipartFile file) {
@@ -37,7 +46,6 @@ public class FileStorageServiceImpl implements FileStorageService {
     @Override
     public Resource load(String filename) {
         try {
-            log.info("loading image" + filename);
             Path file = root.resolve(filename);
             Resource resource = new UrlResource(file.toUri());
 
@@ -52,4 +60,20 @@ public class FileStorageServiceImpl implements FileStorageService {
         }
     }
 
+    @Override
+    public String getCVFileName(int userId) {
+        Optional<User> u = userRepo.findById(userId);
+        if (u.isEmpty()) {
+            throw new ResourceException("User not found");
+        }
+        if (u.get().getCV() == null) {
+            return null;
+        }
+        return u.get().getCV();
+    }
+
+    @Override
+    public Resource loadCV(int userId) {
+        return load(getCVFileName(userId));
+    }
 }

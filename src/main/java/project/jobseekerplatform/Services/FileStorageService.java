@@ -8,4 +8,8 @@ public interface FileStorageService {
     void save(MultipartFile file);
 
     Resource load(String filename);
+
+    Resource loadCV(int userId);
+
+    String getCVFileName(int userId);
 }
