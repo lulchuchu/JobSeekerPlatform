@@ -34,14 +34,14 @@ public class Application {
     private Company company;
 
     @ManyToMany
-    @JoinTable(
-            name = "user_application",
-            joinColumns = @JoinColumn(name = "application_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"application_id", "user_id"})
-    )
     @JsonIgnore
-    private List<User> users;
+    @JoinTable(
+            name = "application_cv",
+            joinColumns = @JoinColumn(name = "application_id"),
+            inverseJoinColumns = @JoinColumn(name = "cv_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"application_id", "cv_id"})
+    )
+    private List<CV> cvs;
 
     @OneToMany(mappedBy = "application")
     @JsonIgnore

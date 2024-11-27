@@ -143,3 +143,17 @@
 #                              company_id)
 # VALUES (62, 'Sunnyvale, California, USA', 'Work on data models to improve recommendation systems.', '2024-12-20',
 #         '4+ years', 'Hybrid', '2024-11-25', 'Data Engineer', 'Full-time', 14);
+#
+# INSERT INTO job.user (address, bio, email, name, password, profile_picture, `role`, short_description, username,
+#                       manage_company_id)
+# VALUES ('googleAdmin1', NULL, 'googleAdmin1@gmail.com', 'googleAdmin1',
+#         '$2a$10$xXan22glLI4215AuYym6guuPurmNmW9Ug2c584VZjtDjejGs7XS2S', NULL, 'USER', 'googleAdmin1', 'googleAdmin1',
+#         10),
+#        ('u1', NULL, 'u1@gmail.com', 'u1', '$2a$10$8GWXdHw1vsO9cEobTVHA1.hXK/2ZUaH4SoCwvbIzt9lRTFsDhPeBu', NULL, 'USER',
+#         'u1', 'u1', NULL),
+#        ('u2', NULL, 'u2@gmail.com', 'u2', '$2a$10$qxmGtuTEo/Gr9gjCD1oT9O4KZxXxpwtl8.7Ydb6/rWTl6JDk34kq6', NULL, 'USER',
+#         'u2', 'u2', NULL),
+#        ('superuser', NULL, 'superuser@gmail.com', 'superuser',
+#         '$2a$10$mA4MQA.uHE7uplbiK8hGGuyUvLwIxyPrVzTvu7Z5MrMX10DxXKZYu', NULL, 'SUPERUSER', 'superuser', 'superuser',
+#         NULL);
+#

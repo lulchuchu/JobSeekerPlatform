@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.dto.UserDtoSignup;
 import project.jobseekerplatform.Model.entities.Application;
+import project.jobseekerplatform.Model.entities.CV;
 import project.jobseekerplatform.Model.entities.Job;
 import project.jobseekerplatform.Model.entities.User;
+import project.jobseekerplatform.Persistences.CVRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Security.UserDetail;
 import project.jobseekerplatform.Services.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,12 +25,14 @@ public class UserServiceImpl implements UserService {
 
     private final ModelMapper modelMapper;
     private final UserRepo userRepo;
+    private final CVRepo cvRepo;
 
 
     @Autowired
-    public UserServiceImpl(ModelMapper modelMapper, UserRepo userRepo) {
+    public UserServiceImpl(ModelMapper modelMapper, UserRepo userRepo, CVRepo cvRepo) {
         this.modelMapper = modelMapper;
         this.userRepo = userRepo;
+        this.cvRepo = cvRepo;
     }
 
     @Override
@@ -169,7 +174,13 @@ public class UserServiceImpl implements UserService {
         if (user.isEmpty()) {
             throw new RuntimeException("User not found");
         }
-        userRepo.updateCV(userId, path);
+        CV cv = new CV();
+        cv.setUser(user.get());
+        cv.setFilename(path);
+        cv.setPath(path);
+        user.get().getCV().add(cv);
+        cvRepo.save(cv);
+        userRepo.save(user.get());
     }
 
     @Override
@@ -188,7 +199,11 @@ public class UserServiceImpl implements UserService {
         if (user.isEmpty()) {
             throw new RuntimeException("User not found");
         }
-        return user.get().getApplications();
+        List<Application> applications = new ArrayList<>();
+        for (CV cv : user.get().getCV()) {
+            applications.addAll(cv.getApplication());
+        }
+        return applications;
     }
 
 

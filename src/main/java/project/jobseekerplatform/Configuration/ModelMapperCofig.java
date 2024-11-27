@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ModelMapperCofig {
 
-
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();

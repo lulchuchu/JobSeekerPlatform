@@ -3,6 +3,7 @@ package project.jobseekerplatform.Model.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import project.jobseekerplatform.Model.entities.CV;
 
 import java.io.Serializable;
 
@@ -18,4 +19,5 @@ public class UserDtoBasic implements Serializable {
     private String email;
     private String profilePicture;
     private String shortDescription;
+    private CV cv;
 }

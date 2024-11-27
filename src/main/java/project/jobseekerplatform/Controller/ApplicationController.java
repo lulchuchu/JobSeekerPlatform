@@ -78,16 +78,24 @@ public class ApplicationController {
     public ResponseEntity<?> checkApply(Authentication auth, @RequestParam("applicationId") int applicationId) {
         UserDetail userDetail = (UserDetail) auth.getPrincipal();
         User user = userDetail.getUser();
-        boolean isApplied = applicationService.checkApply(user.getId(), applicationId);
+        boolean isApplied = applicationService.checkApply(user, applicationId);
         return ResponseEntity.ok(isApplied);
     }
 
     @PostMapping("/apply")
-    public ResponseEntity<?> apply(Authentication auth, @RequestParam("applicationId") int applicationId) {
+    public ResponseEntity<?> apply(Authentication auth, @RequestParam("cvId") int cvId, @RequestParam("applicationId") int applicationId) {
         UserDetail userDetail = (UserDetail) auth.getPrincipal();
         User user = userDetail.getUser();
-        Application application = applicationService.apply(user.getId(), applicationId);
-        return ResponseEntity.ok(application);
+        applicationService.apply(cvId, applicationId);
+        return ResponseEntity.ok("Apply successfully");
+    }
+
+    @PostMapping("/unApply")
+    public ResponseEntity<?> unApply(Authentication auth, @RequestParam("applicationId") int applicationId) {
+        UserDetail userDetail = (UserDetail) auth.getPrincipal();
+        User user = userDetail.getUser();
+        applicationService.unApply(user, applicationId);
+        return ResponseEntity.ok("Unapply successfully");
     }
 
     @CrossOrigin

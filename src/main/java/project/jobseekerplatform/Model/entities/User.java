@@ -26,7 +26,9 @@ public class User {
     private String address;
     private String password;
     private String profilePicture;
-    private String CV;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<CV> CV;
 
     @ManyToMany(mappedBy = "followers", fetch = FetchType.LAZY)
     @JsonIgnore
@@ -64,10 +66,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<Post> posts;
-
-    @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<Application> applications;
 
     @ManyToMany(mappedBy = "receivers", fetch = FetchType.LAZY)
     @JsonIgnore

@@ -2,6 +2,10 @@ package project.jobseekerplatform.Services;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
+import project.jobseekerplatform.Model.entities.CV;
+
+import java.util.AbstractMap;
+import java.util.List;
 
 public interface FileStorageService {
 
@@ -9,7 +13,9 @@ public interface FileStorageService {
 
     Resource load(String filename);
 
-    Resource loadCV(int userId);
+    AbstractMap.SimpleEntry<String, Resource> loadCV(int userId);
 
-    String getCVFileName(int userId);
+    List<CV> getCVFileName(int userId);
+
+    void deleteCV(int cvId);
 }

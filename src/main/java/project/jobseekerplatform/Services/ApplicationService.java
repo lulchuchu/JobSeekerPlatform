@@ -8,16 +8,17 @@ import project.jobseekerplatform.Model.dto.FilterDto;
 import project.jobseekerplatform.Model.dto.InterviewDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.Application;
+import project.jobseekerplatform.Model.entities.User;
 
 import java.util.List;
 
 public interface ApplicationService {
     // Application findById(int id);
-    Application apply(int userId, int applicationId);
+    void apply(int cvId, int applicationId);
 
     List<UserDtoBasic> listUserApplied(int applicationId);
 
-    boolean checkApply(int id, int applicationId);
+    boolean checkApply(User user, int applicationId);
 
     void addApplication(ApplicationDto application, Authentication auth);
 
@@ -32,4 +33,6 @@ public interface ApplicationService {
     InterviewDto getInterview(int applicationId, int userId);
 
     List<ApplicationDto> getAllApplication(int companyId);
+
+    void unApply(User user, int applicationId);
 }

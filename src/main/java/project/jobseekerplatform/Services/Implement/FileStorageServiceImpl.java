@@ -6,7 +6,10 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import project.jobseekerplatform.Exception.ResourceException;
+import project.jobseekerplatform.Model.entities.Application;
+import project.jobseekerplatform.Model.entities.CV;
 import project.jobseekerplatform.Model.entities.User;
+import project.jobseekerplatform.Persistences.CVRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.FileStorageService;
 
@@ -15,6 +18,8 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.AbstractMap;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,9 +29,11 @@ public class FileStorageServiceImpl implements FileStorageService {
     // private final Path root = Paths.get("src/main/resources/static/Pics");
     private final Path root = Paths.get("Files");
     private final UserRepo userRepo;
+    private final CVRepo cvRepo;
 
-    public FileStorageServiceImpl(UserRepo userRepo) {
+    public FileStorageServiceImpl(UserRepo userRepo, CVRepo cvRepo) {
         this.userRepo = userRepo;
+        this.cvRepo = cvRepo;
     }
 
     @Override
@@ -61,19 +68,31 @@ public class FileStorageServiceImpl implements FileStorageService {
     }
 
     @Override
-    public String getCVFileName(int userId) {
+    public List<CV> getCVFileName(int userId) {
         Optional<User> u = userRepo.findById(userId);
         if (u.isEmpty()) {
             throw new ResourceException("User not found");
-        }
-        if (u.get().getCV() == null) {
-            return null;
         }
         return u.get().getCV();
     }
 
     @Override
-    public Resource loadCV(int userId) {
-        return load(getCVFileName(userId));
+    public void deleteCV(int cvId) {
+        CV cv = cvRepo.findById(cvId).orElseThrow(() -> new ResourceException("CV not found"));
+        for (Application application : cv.getApplication()) {
+            application.getCvs().remove(cv);
+        }
+        cvRepo.delete(cv);
+    }
+
+    @Override
+    public AbstractMap.SimpleEntry<String, Resource> loadCV(int cvId) {
+        Optional<CV> cv = cvRepo.findById(cvId);
+
+        if (cv.isEmpty()) {
+            throw new ResourceException("CV not found");
+        }
+
+        return new AbstractMap.SimpleEntry<>(cv.get().getFilename(), load(cv.get().getFilename()));
     }
 }

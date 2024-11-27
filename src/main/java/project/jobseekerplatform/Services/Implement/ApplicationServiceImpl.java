@@ -7,17 +7,16 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import project.jobseekerplatform.Exception.ResourceException;
 import project.jobseekerplatform.Model.dto.ApplicationDto;
 import project.jobseekerplatform.Model.dto.FilterDto;
 import project.jobseekerplatform.Model.dto.InterviewDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.Application;
+import project.jobseekerplatform.Model.entities.CV;
 import project.jobseekerplatform.Model.entities.Interview;
 import project.jobseekerplatform.Model.entities.User;
-import project.jobseekerplatform.Persistences.ApplicationRepo;
-import project.jobseekerplatform.Persistences.CompanyRepo;
-import project.jobseekerplatform.Persistences.InterviewRepo;
-import project.jobseekerplatform.Persistences.UserRepo;
+import project.jobseekerplatform.Persistences.*;
 import project.jobseekerplatform.Services.ApplicationService;
 
 import java.time.LocalDate;
@@ -32,46 +31,44 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final UserRepo userRepo;
     private final CompanyRepo companyRepo;
     private final InterviewRepo interviewRepo;
+    private final CVRepo cvRepo;
 
     @Autowired
-    public ApplicationServiceImpl(ModelMapper modelMapper, ApplicationRepo applicationRepo, UserRepo userRepo, CompanyRepo companyRepo, InterviewRepo interviewRepo, InterviewRepo interviewRepo1) {
+    public ApplicationServiceImpl(ModelMapper modelMapper, ApplicationRepo applicationRepo, UserRepo userRepo, CompanyRepo companyRepo, InterviewRepo interviewRepo, InterviewRepo interviewRepo1, CVRepo cvRepo) {
         this.modelMapper = modelMapper;
         this.applicationRepo = applicationRepo;
         this.userRepo = userRepo;
         this.companyRepo = companyRepo;
         this.interviewRepo = interviewRepo1;
+        this.cvRepo = cvRepo;
     }
 
 
     @Override
-    public Application apply(int userId, int applicationId) {
-        Optional<User> user = userRepo.findById(userId);
+    public void apply(int cvId, int applicationId) {
+        Optional<CV> cv = cvRepo.findById(cvId);
+        if (cv.isEmpty()) {
+            throw new ResourceException("CV not found");
+        }
         Optional<Application> application = applicationRepo.findById(applicationId);
-        if (user.isEmpty() || application.isEmpty()) {
-            return null;
-        }
-        //Xem nhung cong viec ma user da apply
-        List<Application> applications = user.get().getApplications();
-        //Xem nhung user da apply vao cong viec nay
-        List<User> users = application.get().getUsers();
-        if (applications.contains(application.get())) {
-            applications.remove(application.get());
-            users.remove(user.get());
-        } else {
-            applications.add(application.get());
-            users.add(user.get());
+        if (application.isEmpty()) {
+            throw new ResourceException("Application not found");
         }
 
-        userRepo.save(user.get());
+        application.get().getCvs().add(cv.get());
+        cv.get().getApplication().add(application.get());
+        cvRepo.save(cv.get());
         applicationRepo.save(application.get());
-
-        return application.get();
     }
 
     @Override
     public List<UserDtoBasic> listUserApplied(int applicationId) {
-        return applicationRepo.findById(applicationId).get().getUsers().stream().map(
-                user -> modelMapper.map(user, UserDtoBasic.class)).toList();
+        return applicationRepo.findById(applicationId).get().getCvs().stream().map(
+                cv -> {
+                    UserDtoBasic u = modelMapper.map(cv.getUser(), UserDtoBasic.class);
+                    u.setCv(cv);
+                    return u;
+                }).toList();
     }
 
     @Override
@@ -134,10 +131,16 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public boolean checkApply(int id, int applicationId) {
-        User user = userRepo.findById(id).get();
-        return user.getApplications().stream()
-                .anyMatch(application -> application.getId() == applicationId);
+    public boolean checkApply(User user, int applicationId) {
+        List<Integer> cvs = user.getCV().stream().map(CV::getId).toList();
+        Optional<Application> application = applicationRepo.findById(applicationId);
+        List<CV> cvOfApplication = application.get().getCvs();
+        for (CV cv : cvOfApplication) {
+            if (cvs.contains(cv.getId())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -186,8 +189,27 @@ public class ApplicationServiceImpl implements ApplicationService {
         return applicationRepo.findAllByCompanyId(companyId).stream().map(
                 (application) -> {
                     ApplicationDto applicationDto = modelMapper.map(application, ApplicationDto.class);
-                    applicationDto.setNumberOfApplicants(application.getUsers().size());
+                    applicationDto.setNumberOfApplicants(application.getCvs().size());
                     return applicationDto;
                 }).toList();
+    }
+
+    @Override
+    public void unApply(User user, int applicationId) {
+        List<CV> cv = cvRepo.findByUserId(user.getId());
+        if (cv.isEmpty()) {
+            throw new ResourceException("The user didn't apply for this job");
+        }
+        Optional<Application> application = applicationRepo.findById(applicationId);
+        if (application.isEmpty()) {
+            throw new ResourceException("Application not found");
+        }
+        for (CV cv1 : cv) {
+            if (application.get().getCvs().contains(cv1)) {
+                application.get().getCvs().remove(cv1);
+                applicationRepo.save(application.get());
+                return;
+            }
+        }
     }
 }

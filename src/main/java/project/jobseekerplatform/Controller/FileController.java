@@ -7,9 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import project.jobseekerplatform.Model.entities.CV;
 import project.jobseekerplatform.Services.FileStorageService;
 
 import java.io.IOException;
+import java.util.AbstractMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/file")
@@ -34,26 +37,34 @@ public class FileController {
                 .body(bytes);
     }
 
-    @GetMapping(value = "/getCV/{userId}", produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<Resource> getCV(@PathVariable int userId) throws IOException {
-        Resource cvFile = fileStorageService.loadCV(userId);
-        String cvFileName = fileStorageService.getCVFileName(userId);
+    @GetMapping(value = "/getCV/{cvId}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public ResponseEntity<Resource> getCV(@PathVariable int cvId) throws IOException {
+        AbstractMap.SimpleEntry<String, Resource> cvFile = fileStorageService.loadCV(cvId);
 
         return ResponseEntity
                 .ok()
                 .header(org.springframework.http.HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment; filename=\"" + cvFileName + "\"")
+                        "attachment; filename=\"" + cvFile.getKey() + "\"")
                 .contentType(MediaType.APPLICATION_PDF)
-                .body(cvFile);
+                .body(cvFile.getValue());
     }
 
-    @GetMapping(value = "/getCVFileName/{userId}", produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<String> getFileCVName(@PathVariable int userId) throws IOException {
-        String cvFile = fileStorageService.getCVFileName(userId);
+    @GetMapping(value = "/getCVFileName/{userId}")
+    public ResponseEntity<?> getFileCVName(@PathVariable int userId) throws IOException {
+        List<CV> cvFile = fileStorageService.getCVFileName(userId);
 
         return ResponseEntity
                 .ok()
                 .body(cvFile);
+    }
+
+    @PostMapping("/deleteCV/{cvId}")
+    public ResponseEntity<?> deleteCV(@PathVariable int cvId) throws IOException {
+        fileStorageService.deleteCV(cvId);
+
+        return ResponseEntity
+                .ok()
+                .body("Delete cv successfully");
     }
 
     @PostMapping("/upload")

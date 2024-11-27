@@ -32,9 +32,5 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query("UPDATE User u SET u.profilePicture = :path WHERE u.id = :id")
     void updateProfilePicture(Integer id, String path);
 
-    @Modifying
-    @Transactional
-    @Query("UPDATE User u SET u.CV = :path WHERE u.id = :id")
-    void updateCV(Integer id, String path);
     List<User> findAllByFollowersIs(User follower);
 }
