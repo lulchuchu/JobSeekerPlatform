@@ -192,6 +192,13 @@ public class UserServiceImpl implements UserService {
         userRepo.updateProfilePicture(userId, path);
     }
 
+    @Override
+    public List<UserDtoBasic> suggestFollowing(Integer userId) {
+        //return max 5 random user and map to UserDtoBasic except user himself
+        List<User> users = userRepo.findRandomUser(userId);
+        return users.stream().map(user -> modelMapper.map(user, UserDtoBasic.class)).toList();
+    }
+
 
     @Override
     public List<Application> listApplying(int userId) {

@@ -3,7 +3,9 @@ package project.jobseekerplatform.Services.Implement;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.MessageDto;
+import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.MessageE;
+import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.MessageRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.MessageService;
@@ -11,6 +13,7 @@ import project.jobseekerplatform.Services.MessageService;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -65,5 +68,25 @@ public class MessageServiceImpl implements MessageService {
         }).toList());
         result.sort(Comparator.comparing(MessageDto::getTime));
         return result;
+    }
+
+    @Override
+    public List<UserDtoBasic> getChatList(Integer userId) {
+        HashSet<User> userDtoBasics = new HashSet<>();
+        for (MessageE messageE : messageRepo.findFirstGroupBySenderId(userId)) {
+            userDtoBasics.add(messageE.getReceiver());
+        }
+        for (MessageE messageE : messageRepo.findFirstGroupByReceiverId(userId)) {
+            userDtoBasics.add(messageE.getSender());
+        }
+        List<UserDtoBasic> userDtoBasicList = new ArrayList<>();
+        for (User user : userDtoBasics) {
+            UserDtoBasic userDtoBasic = new UserDtoBasic();
+            userDtoBasic.setId(user.getId());
+            userDtoBasic.setName(user.getName());
+            userDtoBasic.setProfilePicture(user.getProfilePicture());
+            userDtoBasicList.add(userDtoBasic);
+        }
+        return userDtoBasicList;
     }
 }

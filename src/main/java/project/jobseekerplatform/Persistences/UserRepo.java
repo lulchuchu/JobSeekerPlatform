@@ -33,4 +33,9 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     void updateProfilePicture(Integer id, String path);
 
     List<User> findAllByFollowersIs(User follower);
+
+    List<User> findAllByFollowingIs(User following);
+
+    @Query(value = "SELECT * FROM job.user u WHERE u.id != ?1 AND u.role = 'USER' ORDER BY RAND() LIMIT 5", nativeQuery = true)
+    List<User> findRandomUser(Integer userId);
 }

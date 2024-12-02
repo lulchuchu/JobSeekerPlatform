@@ -9,4 +9,8 @@ import java.util.List;
 @Repository
 public interface MessageRepo extends JpaRepository<MessageE, Integer> {
     List<MessageE> findAllBySenderIdAndReceiverId(Integer senderId, Integer receiverId);
+
+    List<MessageE> findFirstGroupBySenderId(Integer senderId);
+
+    List<MessageE> findFirstGroupByReceiverId(Integer receiverId);
 }

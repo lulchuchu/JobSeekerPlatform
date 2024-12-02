@@ -2,6 +2,7 @@ package project.jobseekerplatform.Services.Implement;
 
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
+import project.jobseekerplatform.Exception.ResourceException;
 import project.jobseekerplatform.Model.dto.NotificationDto;
 import project.jobseekerplatform.Model.entities.Notification;
 import project.jobseekerplatform.Model.entities.Post;
@@ -34,10 +35,10 @@ public class NotificationServiceImpl implements NotificationService {
         Optional<User> sender = userRepo.findById(notification.getSenderId());
         Optional<Post> post = postRepo.findById(notification.getPostId());
         if (sender.isEmpty() || post.isEmpty()) {
-            return;
+            throw new ResourceException("Sender or post not found");
         }
 
-        List<User> followers = sender.get().getFollowers();
+        List<User> followers = userRepo.findAllByFollowingIs(sender.get());
 
         for (User follower : followers) {
             notification.setSenderAvatar(sender.get().getProfilePicture());
@@ -95,6 +96,22 @@ public class NotificationServiceImpl implements NotificationService {
         Optional<User> receiver = userRepo.findById(notification.getReceiverId()); //bai dang
         simpMessagingTemplate.convertAndSendToUser(receiver.get().getName(), "/notification", notification);
         Notification noti = new Notification();
+        noti.setMessage(notification.getMessage());
+        noti.setReceivers(List.of(receiver.get()));
+        notificationRepo.save(noti);
+    }
+
+    @Override
+    public void sendFollowNotification(NotificationDto notification) {
+        Optional<User> sender = userRepo.findById(notification.getSenderId());
+        Optional<User> receiver = userRepo.findById(notification.getReceiverId());
+        if (sender.isEmpty() || receiver.isEmpty()) {
+            throw new ResourceException("Sender or receiver not found");
+        }
+        notification.setSenderAvatar(sender.get().getProfilePicture());
+        simpMessagingTemplate.convertAndSendToUser(receiver.get().getName(), "/notification", notification);
+        Notification noti = new Notification();
+        noti.setSender(sender.get());
         noti.setMessage(notification.getMessage());
         noti.setReceivers(List.of(receiver.get()));
         notificationRepo.save(noti);

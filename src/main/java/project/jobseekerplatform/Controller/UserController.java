@@ -63,6 +63,12 @@ public class UserController {
         return ResponseEntity.ok(check);
     }
 
+    @GetMapping("/suggest")
+    public ResponseEntity<?> suggestFollowing(Authentication auth) {
+        UserDetail userDetail = (UserDetail) auth.getPrincipal();
+        return ResponseEntity.ok(userService.suggestFollowing(userDetail.getUser().getId()));
+    }
+
     @GetMapping("/following")
     public ResponseEntity<?> listFollowing(@RequestParam int userId) {
         return ResponseEntity.ok(userService.listFollowing(userId));

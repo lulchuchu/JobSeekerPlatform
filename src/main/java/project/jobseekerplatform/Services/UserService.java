@@ -49,4 +49,5 @@ public interface UserService extends UserDetailsService {
 
     void changeProfilePicture(Integer userId, String path);
 
+    List<UserDtoBasic> suggestFollowing(Integer userId);
 }

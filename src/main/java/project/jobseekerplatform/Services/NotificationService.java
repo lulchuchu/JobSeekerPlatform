@@ -12,4 +12,6 @@ public interface NotificationService {
     List<NotificationDto> getAllNotificationsByUser(Integer userId);
 
     void sendJobNotification(NotificationDto notification);
+
+    void sendFollowNotification(NotificationDto notification);
 }
