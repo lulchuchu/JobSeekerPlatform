@@ -61,7 +61,7 @@ public class User {
     private List<Comment> comments;
 
     @OneToMany(mappedBy = "user")
-    private List<Job> jobs;
+    private List<Experience> experiences;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore

@@ -7,6 +7,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 import project.jobseekerplatform.Exception.ResourceException;
 import project.jobseekerplatform.Model.dto.ApplicationDto;
 import project.jobseekerplatform.Model.dto.FilterDto;
@@ -18,7 +19,11 @@ import project.jobseekerplatform.Model.entities.Interview;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.*;
 import project.jobseekerplatform.Services.ApplicationService;
+import project.jobseekerplatform.Services.CVParsingService;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -32,20 +37,22 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final CompanyRepo companyRepo;
     private final InterviewRepo interviewRepo;
     private final CVRepo cvRepo;
+    private final CVParsingService cvParsingService;
 
     @Autowired
-    public ApplicationServiceImpl(ModelMapper modelMapper, ApplicationRepo applicationRepo, UserRepo userRepo, CompanyRepo companyRepo, InterviewRepo interviewRepo, InterviewRepo interviewRepo1, CVRepo cvRepo) {
+    public ApplicationServiceImpl(ModelMapper modelMapper, ApplicationRepo applicationRepo, UserRepo userRepo,
+                                  CompanyRepo companyRepo, InterviewRepo interviewRepo, InterviewRepo interviewRepo1, CVRepo cvRepo, WebClient.Builder webClientBuilder, CVParsingService cvParsingService) {
         this.modelMapper = modelMapper;
         this.applicationRepo = applicationRepo;
         this.userRepo = userRepo;
         this.companyRepo = companyRepo;
         this.interviewRepo = interviewRepo1;
         this.cvRepo = cvRepo;
+        this.cvParsingService = cvParsingService;
     }
 
-
     @Override
-    public void apply(int cvId, int applicationId) {
+    public void apply(int cvId, int applicationId, User user) {
         Optional<CV> cv = cvRepo.findById(cvId);
         if (cv.isEmpty()) {
             throw new ResourceException("CV not found");
@@ -54,8 +61,22 @@ public class ApplicationServiceImpl implements ApplicationService {
         if (application.isEmpty()) {
             throw new ResourceException("Application not found");
         }
-
         application.get().getCvs().add(cv.get());
+        Path root = Paths.get("Files");
+
+        File cvFile = new File(String.valueOf(root.resolve(cv.get().getFilename())));
+
+        // Call the parseCV method
+        cvParsingService.parseCV(cvFile, user.getId(), applicationId)
+                .doOnNext(parsedData -> {
+                    // Process the returned data if needed
+                    System.out.println("Parsed CV Data: " + parsedData);
+                })
+                .doOnError(error -> {
+                    throw new ResourceException("Failed to parse CV: " + error.getMessage());
+                })
+                .subscribe(); // Trigger the WebClient call
+
         cv.get().getApplication().add(application.get());
         cvRepo.save(cv.get());
         applicationRepo.save(application.get());
@@ -121,12 +142,14 @@ public class ApplicationServiceImpl implements ApplicationService {
 
             List<Application> applications = applicationRepo.findJob(dateResult, experience, jobType, onSite, pageable);
             return new PageImpl<>(applications, pageable, totalPage);
-//            return applications;
+            // return applications;
         } else {
-            long totalPage = applicationRepo.countJob(dateResult, experience, jobType, onSite, Integer.parseInt(companyId));
-            List<Application> applications = applicationRepo.findJobCompany(dateResult, experience, jobType, onSite, Integer.parseInt(companyId), pageable);
+            long totalPage = applicationRepo.countJob(dateResult, experience, jobType, onSite,
+                    Integer.parseInt(companyId));
+            List<Application> applications = applicationRepo.findJobCompany(dateResult, experience, jobType, onSite,
+                    Integer.parseInt(companyId), pageable);
             return new PageImpl<>(applications, pageable, totalPage);
-//            return applications;
+            // return applications;
         }
     }
 
@@ -150,16 +173,16 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public void setInterview(InterviewDto interviewDto) {
-        //Lay ra cong viec
+        // Lay ra cong viec
         Application application = applicationRepo.findById(interviewDto.getApplicationId()).get();
-        //Lay ra user
+        // Lay ra user
         User user = userRepo.findById(interviewDto.getUserId()).get();
-        //Xoa interview cu neu co
-        if (interviewRepo.findByApplicationIdAndUserId(interviewDto.getApplicationId(), interviewDto.getUserId()) != null
-        ) {
+        // Xoa interview cu neu co
+        if (interviewRepo.findByApplicationIdAndUserId(interviewDto.getApplicationId(),
+                interviewDto.getUserId()) != null) {
             interviewRepo.deleteByApplicationIdAndUserId(interviewDto.getApplicationId(), interviewDto.getUserId());
         }
-        //Tao interview moi
+        // Tao interview moi
         Interview interview = new Interview();
         interview.setApplication(application);
         interview.setUser(user);

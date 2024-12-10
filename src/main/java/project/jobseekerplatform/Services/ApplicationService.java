@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface ApplicationService {
     // Application findById(int id);
-    void apply(int cvId, int applicationId);
+    void apply(int cvId, int applicationId, User user);
 
     List<UserDtoBasic> listUserApplied(int applicationId);
 

@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.MessageDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.MessageE;
+import project.jobseekerplatform.Model.entities.SenderReceiver;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.MessageRepo;
+import project.jobseekerplatform.Persistences.SenderReceiverRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.MessageService;
 
@@ -21,19 +23,31 @@ public class MessageServiceImpl implements MessageService {
     private final MessageRepo messageRepo;
     private final SimpMessagingTemplate simpMessagingTemplate;
     private final UserRepo userRepo;
+    private final SenderReceiverRepo senderReceiverRepo;
 
-    public MessageServiceImpl(MessageRepo messageRepo, SimpMessagingTemplate simpMessagingTemplate, UserRepo userRepo) {
+    public MessageServiceImpl(MessageRepo messageRepo, SimpMessagingTemplate simpMessagingTemplate, UserRepo userRepo, SenderReceiverRepo senderReceiverRepo) {
         this.messageRepo = messageRepo;
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.userRepo = userRepo;
+        this.senderReceiverRepo = senderReceiverRepo;
     }
 
     @Override
     public void sendMessage(MessageDto messageDto) {
         //Tao mot bien class Message moi va them thuoc tinh Dto
         MessageE message = new MessageE();
-        message.setSender(userRepo.findById(messageDto.getSenderId()).get());
-        message.setReceiver(userRepo.findById(messageDto.getReceiverId()).get());
+        User sender = userRepo.findById(messageDto.getSenderId()).get();
+        User receiver = userRepo.findById(messageDto.getReceiverId()).get();
+
+        if (senderReceiverRepo.findBySenderAndReceiver(sender, receiver).isEmpty()) {
+            SenderReceiver senderReceiver = new SenderReceiver();
+            senderReceiver.setSender(sender);
+            senderReceiver.setReceiver(receiver);
+            senderReceiverRepo.save(senderReceiver);
+        }
+
+        message.setSender(sender);
+        message.setReceiver(receiver);
         message.setContents(messageDto.getContents());
         message.setTime(LocalDateTime.now());
         //Tao mot bien class MessageDto moi va them thuoc tinh tu class Message
@@ -72,19 +86,39 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public List<UserDtoBasic> getChatList(Integer userId) {
+//        HashSet<User> userDtoBasics = new HashSet<>();
+//        for (MessageE messageE : messageRepo.findFirstGroupBySenderId(userId)) {
+//            userDtoBasics.add(messageE.getReceiver());
+//        }
+//        for (MessageE messageE : messageRepo.findFirstGroupByReceiverId(userId)) {
+//            userDtoBasics.add(messageE.getSender());
+//        }
+//        List<UserDtoBasic> userDtoBasicList = new ArrayList<>();
+//        for (User user : userDtoBasics) {
+//            UserDtoBasic userDtoBasic = new UserDtoBasic();
+//            userDtoBasic.setId(user.getId());
+//            userDtoBasic.setName(user.getName());
+//            userDtoBasic.setProfilePicture(user.getProfilePicture());
+//            userDtoBasicList.add(userDtoBasic);
+//        }
+//        return userDtoBasicList;
         HashSet<User> userDtoBasics = new HashSet<>();
-        for (MessageE messageE : messageRepo.findFirstGroupBySenderId(userId)) {
-            userDtoBasics.add(messageE.getReceiver());
+        for (SenderReceiver senderReceiver : senderReceiverRepo.findAllBySender(userRepo.findById(userId).get())) {
+            userDtoBasics.add(senderReceiver.getReceiver());
         }
-        for (MessageE messageE : messageRepo.findFirstGroupByReceiverId(userId)) {
-            userDtoBasics.add(messageE.getSender());
+        for (SenderReceiver senderReceiver : senderReceiverRepo.findAllByReceiver(userRepo.findById(userId).get())) {
+            userDtoBasics.add(senderReceiver.getSender());
         }
+        // Also add the current following user to userDtoBasics
+        User userr = userRepo.findById(userId).get();
+        userDtoBasics.addAll(userr.getFollowing());
+
         List<UserDtoBasic> userDtoBasicList = new ArrayList<>();
         for (User user : userDtoBasics) {
             UserDtoBasic userDtoBasic = new UserDtoBasic();
-            userDtoBasic.setId(user.getId());
-            userDtoBasic.setName(user.getName());
-            userDtoBasic.setProfilePicture(user.getProfilePicture());
+            userDtoBasic.setId((user).getId());
+            userDtoBasic.setName((user).getName());
+            userDtoBasic.setProfilePicture((user).getProfilePicture());
             userDtoBasicList.add(userDtoBasic);
         }
         return userDtoBasicList;

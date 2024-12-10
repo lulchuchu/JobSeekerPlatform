@@ -13,6 +13,8 @@ import java.util.List;
 public interface PostService {
     Integer createPost(PostDto postDto, User user);
 
+    Integer createPostCompany(PostDto postDto, int company);
+
     Post findPost(int postId);
 
     void deletePost(int postId, User user);

@@ -86,7 +86,7 @@ create table if not exists interview
     foreign key (user_id) references user (id)
     );
 
-create table if not exists job
+create table if not exists experience
 (
     id          int auto_increment
     primary key,

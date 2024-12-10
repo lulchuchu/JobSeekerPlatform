@@ -9,7 +9,7 @@ import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.dto.UserDtoSignup;
 import project.jobseekerplatform.Model.entities.Application;
 import project.jobseekerplatform.Model.entities.CV;
-import project.jobseekerplatform.Model.entities.Job;
+import project.jobseekerplatform.Model.entities.Experience;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.CVRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
@@ -160,12 +160,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void update(User user) {
-        System.out.println(user.getId());
-        System.out.println(user.getName());
-        System.out.println(user.getEmail());
-        System.out.println(user.getAddress());
-        System.out.println(user.getShortDescription());
-        userRepo.updateUser(user.getId(), user.getName(), user.getEmail(), user.getAddress(), user.getShortDescription());
+        userRepo.updateUser(user.getId(), user.getName(), user.getEmail(), user.getAddress(), user.getShortDescription(), user.getBio());
     }
 
     @Override
@@ -225,12 +220,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Job> listExperience(int userId) {
+    public List<Experience> listExperience(int userId) {
         Optional<User> user = userRepo.findById(userId);
         if (user.isEmpty()) {
             throw new RuntimeException("User not found");
         }
-        return user.get().getJobs();
+        return user.get().getExperiences();
     }
 
 

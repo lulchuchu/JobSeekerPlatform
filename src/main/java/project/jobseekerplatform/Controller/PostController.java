@@ -9,11 +9,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import project.jobseekerplatform.Exception.ResourceException;
 import project.jobseekerplatform.Model.dto.PostDto;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Security.UserDetail;
 import project.jobseekerplatform.Security.jwt.JwtTokenProvider;
+import project.jobseekerplatform.Services.CompanyService;
 import project.jobseekerplatform.Services.PostService;
 
 import java.util.List;
@@ -25,14 +27,16 @@ import java.util.List;
 public class PostController {
     private final PostService postService;
     private final UserRepo userRepo;
+    private final CompanyService companyService;
 
 //    private final KafkaTemplate kafkaTemplate;
 
     @Autowired
-    public PostController(PostService postService, JwtTokenProvider jwtTokenProvider, UserRepo userRepo) {
+    public PostController(PostService postService, JwtTokenProvider jwtTokenProvider, UserRepo userRepo, CompanyService companyService) {
         this.postService = postService;
 //        this.kafkaTemplate = kafkaTemplate;
         this.userRepo = userRepo;
+        this.companyService = companyService;
     }
 
     @GetMapping("/newsfeed")
@@ -70,6 +74,21 @@ public class PostController {
     public ResponseEntity<?> createPost(@RequestBody PostDto postDto, Authentication auth) {
         UserDetail userDetail = (UserDetail) auth.getPrincipal();
         int postId = postService.createPost(postDto, userDetail.getUser());
+//        kafkaTemplate.send("post-topic", postDto.toString());
+//        return ResponseEntity.ok("Post created successful");
+        return ResponseEntity.ok(postId);
+
+    }
+
+    @CrossOrigin
+    @PostMapping("/createCompany")
+    public ResponseEntity<?> createPostForCompany(@RequestBody PostDto postDto, Authentication auth) {
+        UserDetail userDetail = (UserDetail) auth.getPrincipal();
+
+        if (!companyService.checkAdmin(postDto.getCompany().getId(), userDetail.getUser().getId())) {
+            throw new ResourceException("You are not admin of this company");
+        }
+        int postId = postService.createPostCompany(postDto, postDto.getCompany().getId());
 //        kafkaTemplate.send("post-topic", postDto.toString());
 //        return ResponseEntity.ok("Post created successful");
         return ResponseEntity.ok(postId);

@@ -34,10 +34,6 @@ public class UserController {
     @PostMapping("/update")
     public ResponseEntity<?> update(Authentication auth, @RequestBody User user) {
         UserDetail userDetail1 = (UserDetail) auth.getPrincipal();
-        System.out.println(userDetail1.getUser().getId());
-        System.out.println(user.getId());
-        System.out.println(user.getEmail());
-        System.out.println(user.getName());
         if (!userDetail1.getUser().getId().equals(user.getId())) {
             return ResponseEntity.badRequest().body("You can only update your own profile");
         }

@@ -12,9 +12,11 @@ import project.jobseekerplatform.Exception.ResourceException;
 import project.jobseekerplatform.Model.dto.CommentDto;
 import project.jobseekerplatform.Model.dto.LikeDto;
 import project.jobseekerplatform.Model.dto.PostDto;
+import project.jobseekerplatform.Model.entities.Company;
 import project.jobseekerplatform.Model.entities.Post;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.CommentRepo;
+import project.jobseekerplatform.Persistences.CompanyRepo;
 import project.jobseekerplatform.Persistences.PostRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
 import project.jobseekerplatform.Services.FileStorageService;
@@ -35,16 +37,18 @@ public class PostServiceImpl implements PostService {
     private final FileStorageService fileStorageService;
     private final UserRepo userRepo;
     private final CommentRepo commentRepo;
+    private final CompanyRepo companyRepo;
 
 
     @Autowired
-    public PostServiceImpl(ModelMapper modelMapper, PostRepo postRepo, UserService userService, FileStorageService fileStorageService, UserRepo userRepo, CommentRepo commentRepo) {
+    public PostServiceImpl(ModelMapper modelMapper, PostRepo postRepo, UserService userService, FileStorageService fileStorageService, UserRepo userRepo, CommentRepo commentRepo, CompanyRepo companyRepo) {
         this.modelMapper = modelMapper;
         this.postRepo = postRepo;
         this.userService = userService;
         this.fileStorageService = fileStorageService;
         this.userRepo = userRepo;
         this.commentRepo = commentRepo;
+        this.companyRepo = companyRepo;
     }
 
     @Override
@@ -142,6 +146,18 @@ public class PostServiceImpl implements PostService {
     public Integer createPost(PostDto postDto, User user) {
         Post post = new Post();
         post.setUser(user);
+        post.setContent(postDto.getContent());
+        post.setPostedDate(LocalDate.now());
+        post.setImages(postDto.getImages());
+        postRepo.save(post);
+        return post.getId();
+    }
+
+    @Override
+    public Integer createPostCompany(PostDto postDto, int companyId) {
+        Post post = new Post();
+        Company company = companyRepo.findById(companyId).get();
+        post.setCompany(company);
         post.setContent(postDto.getContent());
         post.setPostedDate(LocalDate.now());
         post.setImages(postDto.getImages());

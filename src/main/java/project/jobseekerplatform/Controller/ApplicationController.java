@@ -86,7 +86,7 @@ public class ApplicationController {
     public ResponseEntity<?> apply(Authentication auth, @RequestParam("cvId") int cvId, @RequestParam("applicationId") int applicationId) {
         UserDetail userDetail = (UserDetail) auth.getPrincipal();
         User user = userDetail.getUser();
-        applicationService.apply(cvId, applicationId);
+        applicationService.apply(cvId, applicationId, user);
         return ResponseEntity.ok("Apply successfully");
     }
 

@@ -19,13 +19,13 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmailOrUsername(String email, String username);
 
-    @Query("SELECT u FROM User u INNER join Job j ON u.id = j.user.id WHERE j.company.id = ?1")
+    @Query("SELECT u FROM User u INNER join Experience j ON u.id = j.user.id WHERE j.company.id = ?1")
     List<User> findAllByCompany(int companyId);
 
     @Modifying
     @Transactional
-    @Query("UPDATE User u SET u.name = :name, u.email = :email, u.address = :address, u.shortDescription = :shortDescription WHERE u.id = :id")
-    void updateUser(@Param("id") Integer id, @Param("name") String name, @Param("email") String email, @Param("address") String address, @Param("shortDescription") String shortDescription);
+    @Query("UPDATE User u SET u.name = :name, u.email = :email, u.address = :address, u.shortDescription = :shortDescription, u.bio = :bio WHERE u.id = :id")
+    void updateUser(@Param("id") Integer id, @Param("name") String name, @Param("email") String email, @Param("address") String address, @Param("shortDescription") String shortDescription, @Param("bio") String bio);
 
     @Modifying
     @Transactional
