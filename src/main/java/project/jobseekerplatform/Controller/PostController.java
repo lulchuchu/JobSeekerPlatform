@@ -41,9 +41,11 @@ public class PostController {
 
     @GetMapping("/newsfeed")
     @Transactional(propagation = Propagation.REQUIRED)
-    public ResponseEntity<?> getNewsFeed(Authentication auth) {
-        UserDetail userDetail = (UserDetail)auth.getPrincipal();
-        List<PostDto> newsfeed = postService.getNewsFeed(userDetail.getUser());
+    public ResponseEntity<?> getNewsFeed(Authentication auth, @RequestParam(defaultValue = "0") int page,
+                                         @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        UserDetail userDetail = (UserDetail) auth.getPrincipal();
+        List<PostDto> newsfeed = postService.getNewsFeed(userDetail.getUser(), pageable);
 //        kafkaTemplate.send("newsfeed-topic", newsfeed.toString());
         return ResponseEntity.ok(newsfeed);
     }

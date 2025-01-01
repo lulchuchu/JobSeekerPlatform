@@ -23,8 +23,7 @@ import project.jobseekerplatform.Services.FileStorageService;
 import project.jobseekerplatform.Services.PostService;
 import project.jobseekerplatform.Services.UserService;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,20 +51,25 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getNewsFeed(User user) {
+    public List<PostDto> getNewsFeed(User user, Pageable pageable) {
         //Tim nhung nguoi user nay follow va lay ra nhung post cua nhung nguoi do
 //        List<User> followingPeople = user.getFollowing();
-        List<User> followingPeople = userRepo.findAllByFollowersIs(user);
-        List<PostDto> newsfeed = new ArrayList<>();
-        for (User following : followingPeople) {
-            newsfeed.addAll(postRepo.findAllByUserIdOrderByPostedDateDesc(following.getId()).stream().map(p -> {
-                PostDto postDto = modelMapper.map(p, PostDto.class);
-                postDto.setLikeCount(p.getUsersLiked().size());
-                postDto.setCommentCount(p.getComment().size());
-                return postDto;
-            }).toList());
-        }
-        return newsfeed;
+//        List<User> followingPeople = userRepo.findAllByFollowersIs(user);
+//        List<PostDto> newsfeed = new ArrayList<>();
+//        for (User following : followingPeople) {
+//            newsfeed.addAll(postRepo.findAllByUserIdOrderByPostedDateDesc(following.getId()).stream().map(p -> {
+//                PostDto postDto = modelMapper.map(p, PostDto.class);
+//                postDto.setLikeCount(p.getUsersLiked().size());
+//                postDto.setCommentCount(p.getComment().size());
+//                return postDto;
+//            }).toList());
+//        }
+        return postRepo.getNewsFeed(user.getId(), pageable).stream().map(p -> {
+            PostDto postDto = modelMapper.map(p, PostDto.class);
+            postDto.setLikeCount(p.getUsersLiked().size());
+            postDto.setCommentCount(p.getComment().size());
+            return postDto;
+        }).toList();
     }
 
     @Override
@@ -147,7 +151,7 @@ public class PostServiceImpl implements PostService {
         Post post = new Post();
         post.setUser(user);
         post.setContent(postDto.getContent());
-        post.setPostedDate(LocalDate.now());
+        post.setPostedDate(LocalDateTime.now());
         post.setImages(postDto.getImages());
         postRepo.save(post);
         return post.getId();
@@ -159,7 +163,7 @@ public class PostServiceImpl implements PostService {
         Company company = companyRepo.findById(companyId).get();
         post.setCompany(company);
         post.setContent(postDto.getContent());
-        post.setPostedDate(LocalDate.now());
+        post.setPostedDate(LocalDateTime.now());
         post.setImages(postDto.getImages());
         postRepo.save(post);
         return post.getId();

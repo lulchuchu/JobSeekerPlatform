@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface CVRepo extends JpaRepository<CV, Integer> {
-    Optional<CV> findByUserIdAndApplicationId(int userId, int applicationId);
+    Optional<CV> findByUserIdAndJobId(int userId, int jobId);
 
     List<CV> findByUserId(Integer id);
 }

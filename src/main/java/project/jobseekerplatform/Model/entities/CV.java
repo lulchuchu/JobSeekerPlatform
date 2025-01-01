@@ -21,7 +21,7 @@ public class CV {
     private User user;
     @ManyToMany(mappedBy = "cvs")
     @JsonIgnore
-    private List<Application> application;
+    private List<Job> job;
 
     private String filename;
     private String path;

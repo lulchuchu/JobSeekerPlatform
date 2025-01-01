@@ -48,5 +48,5 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
     @JsonIgnore
-    private List<Application> applications;
+    private List<Job> jobs;
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import project.jobseekerplatform.Model.Role;
 import project.jobseekerplatform.Model.dto.UserDtoSignup;
+import project.jobseekerplatform.Model.entities.Company;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Security.UserDetail;
 import project.jobseekerplatform.Security.jwt.JwtResponse;
@@ -48,8 +49,13 @@ public class AuthController {
             String jwt = jwtTokenProvider.generateToken(authentication);
             UserDetail userDetail = (UserDetail) authentication.getPrincipal();
             User userr = userDetail.getUser();
+            Company company = userr.getManageCompany();
+            if (company != null) {
+                return ResponseEntity.ok(new JwtResponse(jwt, userr.getId(), userr.getUsername(), userr.getName(),
+                        userr.getRole(), userr.getProfilePicture(), userr.getManageCompany().getId(), userr.getManageCompany().getProfilePicture()));
+            }
             return ResponseEntity.ok(new JwtResponse(jwt, userr.getId(), userr.getUsername(), userr.getName(),
-                    userr.getRole(), userr.getProfilePicture()));
+                    userr.getRole(), userr.getProfilePicture(), 0, null));
         } catch (Exception e) {
             log.error(String.valueOf(e));
         }

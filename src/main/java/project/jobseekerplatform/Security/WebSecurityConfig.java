@@ -54,10 +54,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.csrf().ignoringAntMatchers("/**");
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/ws", "/ws/**", "/ws-postman", "/ws-postman/**", "/api/company/**", "/api/application/all", "/api/application/company",
+                .antMatchers("/ws", "/ws/**", "/ws-postman", "/ws-postman/**", "/api/company/**", "/api/job/all", "/api/job/queryJobs", "/api/job/company",
                         "/api/file/**", "/login", "/register", "/admin/register", "/admin/login",
                         "/api/post/show", "/api/post/showCompany").permitAll()
-                .antMatchers("/api/application/add/", "/api/company/checkAdmin**").hasRole(Role.ADMIN.name())
+                .antMatchers("/api/job/add/", "/api/company/checkAdmin**").hasRole(Role.ADMIN.name())
                 .anyRequest().authenticated()
                 .and().csrf().disable();
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

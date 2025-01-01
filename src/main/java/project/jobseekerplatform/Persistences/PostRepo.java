@@ -35,5 +35,8 @@ public interface PostRepo extends JpaRepository<Post, Integer> {
 
     @Query("SELECT size(p.usersLiked) FROM Post p WHERE p.id = :postId")
     int countLike(@Param("postId") int postId);
+
+    @Query(value = "SELECT * from post p join followers_following ff on p.user_id = ff.following_id where ff.follower_id = :userId order by posted_date desc", nativeQuery = true)
+    List<Post> getNewsFeed(@Param("userId") int userId, Pageable pageable);
 }
 

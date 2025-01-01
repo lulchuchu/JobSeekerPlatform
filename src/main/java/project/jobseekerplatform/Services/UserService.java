@@ -4,8 +4,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.dto.UserDtoSignup;
-import project.jobseekerplatform.Model.entities.Application;
 import project.jobseekerplatform.Model.entities.Experience;
+import project.jobseekerplatform.Model.entities.Job;
 import project.jobseekerplatform.Model.entities.User;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public interface UserService extends UserDetailsService {
 
     List<UserDtoBasic> listFollowing(int userId);
 
-    List<Application> listApplying(int userId);
+    List<Job> listApplying(int userId);
 
     UserDetails loadUserByUsername(String username);
 

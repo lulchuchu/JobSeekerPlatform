@@ -31,7 +31,7 @@ create table if not exists company
     foreign key (admin_id) references user (id)
     );
 
-create table if not exists application
+create table if not exists job
 (
     id          int auto_increment
     primary key,
@@ -81,7 +81,7 @@ create table if not exists interview
     application_id int         null,
     user_id        int         null,
     constraint FKdyrt85lva791fmh1qnhf0ee0f
-    foreign key (application_id) references application (id),
+        foreign key (application_id) references job (id),
     constraint FKr1uf9tvt2l7jx0x7riec5hfxe
     foreign key (user_id) references user (id)
     );
@@ -193,6 +193,6 @@ create table if not exists user_application
     constraint FK483kmnovbg9ccip3mj0keku9m
     foreign key (user_id) references user (id),
     constraint FK8n17vi0mc676sranq3umd4oal
-    foreign key (application_id) references application (id)
+        foreign key (application_id) references job (id)
     );
 

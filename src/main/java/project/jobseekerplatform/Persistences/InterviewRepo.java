@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 public interface InterviewRepo extends JpaRepository<Interview, Integer> {
     @Transactional
     @Modifying
-    void deleteByApplicationIdAndUserId(int applicationId, int userId);
+    void deleteByJobIdAndUserId(int jobId, int userId);
 
-    Interview findByApplicationIdAndUserId(int applicationId, int userId);
+    Interview findByJobIdAndUserId(int jobId, int userId);
 }

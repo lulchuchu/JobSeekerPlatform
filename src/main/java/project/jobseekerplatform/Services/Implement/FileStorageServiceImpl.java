@@ -6,8 +6,8 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import project.jobseekerplatform.Exception.ResourceException;
-import project.jobseekerplatform.Model.entities.Application;
 import project.jobseekerplatform.Model.entities.CV;
+import project.jobseekerplatform.Model.entities.Job;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.CVRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
@@ -85,8 +85,8 @@ public class FileStorageServiceImpl implements FileStorageService {
     @Override
     public void deleteCV(int cvId) {
         CV cv = cvRepo.findById(cvId).orElseThrow(() -> new ResourceException("CV not found"));
-        for (Application application : cv.getApplication()) {
-            application.getCvs().remove(cv);
+        for (Job job : cv.getJob()) {
+            job.getCvs().remove(cv);
         }
         cvRepo.delete(cv);
     }

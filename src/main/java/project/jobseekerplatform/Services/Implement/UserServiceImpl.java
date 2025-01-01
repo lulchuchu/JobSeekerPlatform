@@ -7,9 +7,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.dto.UserDtoSignup;
-import project.jobseekerplatform.Model.entities.Application;
 import project.jobseekerplatform.Model.entities.CV;
 import project.jobseekerplatform.Model.entities.Experience;
+import project.jobseekerplatform.Model.entities.Job;
 import project.jobseekerplatform.Model.entities.User;
 import project.jobseekerplatform.Persistences.CVRepo;
 import project.jobseekerplatform.Persistences.UserRepo;
@@ -196,16 +196,16 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<Application> listApplying(int userId) {
+    public List<Job> listApplying(int userId) {
         Optional<User> user = userRepo.findById(userId);
         if (user.isEmpty()) {
             throw new RuntimeException("User not found");
         }
-        List<Application> applications = new ArrayList<>();
+        List<Job> jobs = new ArrayList<>();
         for (CV cv : user.get().getCV()) {
-            applications.addAll(cv.getApplication());
+            jobs.addAll(cv.getJob());
         }
-        return applications;
+        return jobs;
     }
 
 

@@ -15,4 +15,5 @@ public class FilterDto {
     private String companyId;
     private Integer currPage;
     private Integer numberPerPage;
+    private String query;
 }

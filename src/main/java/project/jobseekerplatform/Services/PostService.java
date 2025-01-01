@@ -21,7 +21,7 @@ public interface PostService {
 
     void updatePost(PostDto postDto);
 
-    List<PostDto> getNewsFeed(User user);
+    List<PostDto> getNewsFeed(User user, Pageable pageable);
 
     Page<PostDto> getPostByUserId(int userId, Pageable pageable);
 

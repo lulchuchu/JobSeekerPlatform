@@ -10,14 +10,19 @@ public class JwtResponse {
     private String name;
     private Role role;
     private String profilePicture;
+    private int manageCompany;
 
-    public JwtResponse(String accessToken, Integer id, String username, String name, Role role, String profilePicture) {
+    private String companyProfilePicture;
+
+    public JwtResponse(String accessToken, Integer id, String username, String name, Role role, String profilePicture, int manageCompany, String companyProfilePicture) {
         this.accessToken = accessToken;
         this.username = username;
         this.name = name;
         this.id = id;
         this.role = role;
         this.profilePicture = profilePicture;
+        this.manageCompany = manageCompany;
+        this.companyProfilePicture = companyProfilePicture;
     }
 
     public String getName() {
@@ -75,4 +80,22 @@ public class JwtResponse {
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
     }
+
+    public int getManageCompany() {
+        return manageCompany;
+    }
+
+    public void setManageCompany(int manageCompany) {
+        this.manageCompany = manageCompany;
+    }
+
+    public String getCompanyProfilePicture() {
+        return companyProfilePicture;
+    }
+
+    public void setCompanyProfilePicture(String companyProfilePicture) {
+        this.companyProfilePicture = companyProfilePicture;
+    }
+
+
 }

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Application {
+public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -27,8 +27,8 @@ public class Application {
     @Column(length = 100000000)
 
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
     @ManyToOne
     private Company company;
@@ -36,14 +36,14 @@ public class Application {
     @ManyToMany
     @JsonIgnore
     @JoinTable(
-            name = "application_cv",
-            joinColumns = @JoinColumn(name = "application_id"),
+            name = "job_cv",
+            joinColumns = @JoinColumn(name = "job_id"),
             inverseJoinColumns = @JoinColumn(name = "cv_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"application_id", "cv_id"})
+            uniqueConstraints = @UniqueConstraint(columnNames = {"job_id", "cv_id"})
     )
     private List<CV> cvs;
 
-    @OneToMany(mappedBy = "application")
+    @OneToMany(mappedBy = "job")
     @JsonIgnore
     private List<Interview> interviews;
 }

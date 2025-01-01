@@ -18,7 +18,7 @@ public class Interview {
     private Boolean accepted;
     private LocalDateTime time;
     @ManyToOne
-    private Application application;
+    private Job job;
     @ManyToOne
     private User user;
 }

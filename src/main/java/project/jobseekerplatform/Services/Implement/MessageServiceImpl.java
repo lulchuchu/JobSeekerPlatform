@@ -3,6 +3,7 @@ package project.jobseekerplatform.Services.Implement;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import project.jobseekerplatform.Model.dto.MessageDto;
+import project.jobseekerplatform.Model.dto.NotificationDto;
 import project.jobseekerplatform.Model.dto.UserDtoBasic;
 import project.jobseekerplatform.Model.entities.MessageE;
 import project.jobseekerplatform.Model.entities.SenderReceiver;
@@ -50,6 +51,14 @@ public class MessageServiceImpl implements MessageService {
         message.setReceiver(receiver);
         message.setContents(messageDto.getContents());
         message.setTime(LocalDateTime.now());
+
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setSenderId(sender.getId());
+        notificationDto.setSenderName(sender.getName());
+        notificationDto.setSenderAvatar(sender.getProfilePicture());
+        notificationDto.setReceiverId(receiver.getId());
+        notificationDto.setMessage("User " + sender.getName() + " has sent you a message " + messageDto.getContents());
+
         //Tao mot bien class MessageDto moi va them thuoc tinh tu class Message
         messageDto.setSenderName(message.getSender().getName());
         messageDto.setReceiverName(message.getReceiver().getName());
@@ -58,6 +67,7 @@ public class MessageServiceImpl implements MessageService {
         messageDto.setTime(message.getTime());
         //Gui tin nhan den nguoi nhan
         simpMessagingTemplate.convertAndSendToUser(message.getReceiver().getName(), "/message", messageDto);
+        simpMessagingTemplate.convertAndSendToUser(message.getReceiver().getName(), "/notification", notificationDto);
         messageRepo.save(message);
     }
 
